@@ -1,0 +1,17 @@
+ml-model:
+Upload Image
+Product name
+Product description
+Product category
+Sub category
+
+
+To run:
+Frontend - npm run dev
+Backend - npm start
+ml-model -> python -m uvicorn ml_api:app --reload --port 8000
+//To train model - python train_model.py
+venv\Scripts\Activate
+npm run ml
+
+python train_improved.py

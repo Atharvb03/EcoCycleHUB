@@ -1,0 +1,77 @@
+==============================================
+  PROJECT RUN COMMANDS
+==============================================
+
+----------------------------------------------
+1. BACKEND (Node.js / Express)
+----------------------------------------------
+
+# Install dependencies (first time only)
+cd backend
+npm install
+
+# Run backend in development mode (with nodemon auto-restart)
+npm run server
+
+# OR run backend in production mode
+npm start
+
+----------------------------------------------
+2. FRONTEND (React / Vite)
+----------------------------------------------
+
+# Install dependencies (first time only)
+cd frontend
+npm install
+
+# Run frontend dev server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+----------------------------------------------
+3. ML MODEL (FastAPI / Python)
+----------------------------------------------
+
+# FIRST TIME SETUP (run once — recreate venv if Python path errors occur)
+cd ml_model
+rmdir /s /q venv
+python -m venv venv
+venv\Scripts\activate
+pip install fastapi uvicorn scikit-learn pandas numpy joblib tqdm tensorflow transformers
+
+# Start ML API on port 8000 (activate venv first)
+venv\Scripts\activate
+python -m uvicorn ml_api:app --reload --port 8000
+
+# OR use the backend npm script (from backend folder)
+npm run ml
+
+----------------------------------------------
+4. RUN ALL (open 3 separate terminals)
+----------------------------------------------
+
+Terminal 1 - Backend:
+  cd backend && npm run server
+
+Terminal 2 - Frontend:
+  cd frontend && npm run dev
+
+Terminal 3 - ML Model:
+  cd ml_model && venv\Scripts\activate && python -m uvicorn ml_api:app --reload --port 8000
+
+----------------------------------------------
+DEFAULT PORTS
+----------------------------------------------
+  Frontend  : http://localhost:5173
+  Backend   : http://localhost:4000  (check backend/.env for PORT)
+  ML API    : http://localhost:8000
+==============================================
+to remove github connection from cmd
+>rmdir /s /q .git
+
+mongodb+srv://ecocyclehub:ecocyclehub12345@ecocyclehub.ko7jeq4.mongodb.net/ecocyclehub
