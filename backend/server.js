@@ -25,7 +25,10 @@ connectDB();
 connectCloudinary();
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(',') : '*',
+  credentials: true,
+}));
 app.use(express.json());
 
 // API Endpoints

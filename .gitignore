@@ -8,6 +8,7 @@ backend/node_modules/
 .env.local
 .env.development
 .env.production
+# .env.example files ARE committed — they're safe templates with no real secrets
 
 # ─── Build output ───────────────────────────────────────────────
 dist/
