@@ -5,21 +5,32 @@ import Stripe from "stripe";
 import razorpay from "razorpay";
 import { addPoints } from "./rewardController.js";
 
-
-
-
-
 // global variables
 const currency = "inr";
 const deliveryCharge = 10;
 
-// gateway initialize
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+// ── Lazy gateway initialization ──────────────────────────────
+// Prevents crash at startup when keys are not set (e.g. on Render free tier)
+let _stripe = null;
+const getStripe = () => {
+  if (!_stripe) {
+    if (!process.env.STRIPE_SECRET_KEY) throw new Error("STRIPE_SECRET_KEY env var is not set");
+    _stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+  }
+  return _stripe;
+};
 
-const razorpayInstance = new razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID,
-  key_secret: process.env.RAZORPAY_KEY_SECRET,
-});
+let _razorpay = null;
+const getRazorpay = () => {
+  if (!_razorpay) {
+    if (!process.env.RAZORPAY_KEY_ID) throw new Error("RAZORPAY_KEY_ID env var is not set");
+    _razorpay = new razorpay({
+      key_id: process.env.RAZORPAY_KEY_ID,
+      key_secret: process.env.RAZORPAY_KEY_SECRET,
+    });
+  }
+  return _razorpay;
+};
 
 // ======================= COD ORDER =======================
 const placeOrder = async (req, res) => {
@@ -46,7 +57,6 @@ const placeOrder = async (req, res) => {
 
     await userModel.findByIdAndUpdate(userId, { cartData: {} });
 
-    // 🎁 Reward points after COD order (fixed 20 points)
     await addPoints(userId, 20, "order");
 
     return res.json({ success: true, message: "Order Placed" });
@@ -83,9 +93,7 @@ const placeOrderStripe = async (req, res) => {
     const line_items = items.map((item) => ({
       price_data: {
         currency: currency,
-        product_data: {
-          name: item.name,
-        },
+        product_data: { name: item.name },
         unit_amount: item.price * 100,
       },
       quantity: item.quantity,
@@ -94,15 +102,13 @@ const placeOrderStripe = async (req, res) => {
     line_items.push({
       price_data: {
         currency: currency,
-        product_data: {
-          name: "Delivery Charges",
-        },
+        product_data: { name: "Delivery Charges" },
         unit_amount: deliveryCharge * 100,
       },
       quantity: 1,
     });
 
-    const session = await stripe.checkout.sessions.create({
+    const session = await getStripe().checkout.sessions.create({
       success_url: `${origin}/verify?success=true&orderId=${newOrder._id}`,
       cancel_url: `${origin}/verify?success=false&orderId=${newOrder._id}`,
       line_items,
@@ -127,17 +133,9 @@ const verifyStripe = async (req, res) => {
     }
 
     if (success === "true") {
-      const order = await orderModel.findByIdAndUpdate(
-        orderId,
-        { payment: true },
-        { new: true }
-      );
-
+      await orderModel.findByIdAndUpdate(orderId, { payment: true }, { new: true });
       await userModel.findByIdAndUpdate(userId, { cartData: {} });
-
-      // 🎁 Reward points after payment success (fixed 20 points)
       await addPoints(userId, 20, "order");
-
       return res.json({ success: true });
     } else {
       await orderModel.findByIdAndDelete(orderId);
@@ -178,7 +176,7 @@ const placeOrderRazorpay = async (req, res) => {
       receipt: newOrder._id.toString(),
     };
 
-    await razorpayInstance.orders.create(options, (error, order) => {
+    await getRazorpay().orders.create(options, (error, order) => {
       if (error) {
         console.log(error);
         return res.json({ success: false, message: error });
@@ -201,20 +199,12 @@ const verifyRazorpay = async (req, res) => {
       return res.status(401).json({ success: false, message: "Not authorized" });
     }
 
-    const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id);
+    const orderInfo = await getRazorpay().orders.fetch(razorpay_order_id);
 
     if (orderInfo.status === "paid") {
-      const order = await orderModel.findByIdAndUpdate(
-        orderInfo.receipt,
-        { payment: true },
-        { new: true }
-      );
-
+      await orderModel.findByIdAndUpdate(orderInfo.receipt, { payment: true }, { new: true });
       await userModel.findByIdAndUpdate(userId, { cartData: {} });
-
-      // 🎁 Reward points after payment success (fixed 20 points)
       await addPoints(userId, 20, "order");
-
       return res.json({ success: true, message: "Payment Successful" });
     } else {
       return res.json({ success: false, message: "Payment Failed" });
@@ -236,7 +226,7 @@ const allOrders = async (req, res) => {
   }
 };
 
-// ======================= SELLER ORDERS (only orders with seller's products) =======================
+// ======================= SELLER ORDERS =======================
 const sellerOrders = async (req, res) => {
   try {
     const sellerId = req.sellerId;
@@ -267,7 +257,6 @@ const userOrders = async (req, res) => {
     if (!userId) {
       return res.status(401).json({ success: false, message: "Not authorized" });
     }
-
     const orders = await orderModel.find({ userId });
     return res.json({ success: true, orders });
   } catch (error) {
