@@ -75,3 +75,37 @@ to remove github connection from cmd
 >rmdir /s /q .git
 
 mongodb+srv://ecocyclehub:ecocyclehub12345@ecocyclehub.ko7jeq4.mongodb.net/ecocyclehub
+
+
+Now i want to make changes in project by adding a bracnh in github and tell me in fututre how i will merge this branch in my main branch--
+Make your code changes, then:
+git add .
+git commit -m "describe what you changed"
+git push -u origin feature/your-feature-name
+
+
+
+Merging back into main (when you're done)
+Option A — Via GitHub (recommended)
+
+Go to your repo on GitHub
+You'll see a banner: "Compare & pull request" — click it
+Add a title/description and click Create pull request
+Click Merge pull request → Confirm merge
+Then pull the updated main locally:
+
+
+git checkout main
+git pull origin main
+
+
+
+Option B — Via terminal only
+git checkout main
+git pull origin main
+git merge feature/your-feature-name
+git push origin main
+
+Delete the branch after merging (cleanup)
+git branch -d feature/your-feature-name
+git push origin --delete feature/your-feature-n
