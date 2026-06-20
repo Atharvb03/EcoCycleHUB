@@ -25,9 +25,13 @@ connectDB();
 connectCloudinary();
 
 // Middlewares
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(',') : '*',
-  credentials: true,
+  origin: [
+    "http://localhost:5173",
+    "https://ecocyclehub-green.vercel.app"
+  ],
+  credentials: true
 }));
 app.use(express.json());
 
