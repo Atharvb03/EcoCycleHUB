@@ -47,8 +47,8 @@ const Navbar = () => {
         <div className='max-w-7xl mx-auto px-4 flex items-center justify-between h-16'>
 
           {/* Logo + Brand Name */}
-          <Link to='/' className='shrink-0 flex items-center gap-2'>
-            <img src={assets.logo} className='w-10 h-10 object-contain' alt="EcoCycleHub" />
+          <Link to='/' className='shrink-0 flex items-center gap-1'>
+            <img src={assets.logo} className='w-15 h-10 object-contain' alt="EcoCycleHub" />
             <span className='text-xl font-bold leading-none'>
               <span className='text-black'>EcoCycle</span>
               <span style={{ background: 'linear-gradient(to right, #78e08f, #38d996, #00b894)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>HUB</span>
@@ -213,7 +213,7 @@ const Navbar = () => {
              onClick={() => setVisible(false)} />
         <div className={`absolute top-0 right-0 h-full w-72 bg-white shadow-2xl transition-transform duration-300 ${visible ? 'translate-x-0' : 'translate-x-full'}`}>
           <div className='flex items-center justify-between p-4 border-b'>
-            <div className='flex items-center gap-2'>
+            <div className='flex items-center gap-1'>
               <img src={assets.logo} className='w-8 h-8 object-contain' alt="" />
               <span className='text-base font-bold leading-none'>
                 <span className='text-black'>EcoCycle</span>
