@@ -23,7 +23,6 @@ ml_model/venv/
 ml_model/.venv/
 ml_model/env/
 ml_model/__pycache__/
-ml_model/*.pkl
 ml_model/*.h5
 ml_model/*.pt
 ml_model/*.pth
