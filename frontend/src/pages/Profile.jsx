@@ -40,7 +40,7 @@ const Profile = () => {
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950 flex items-center justify-center">
       <div className="text-center">
         <div className="text-6xl animate-spin-slow mb-4">♻️</div>
-        <p className="text-xl text-gray-500 dark:text-gray-400 dark:text-gray-500 animate-pulse">Loading profile...</p>
+        <p className="text-xl text-gray-500 dark:text-gray-100 animate-pulse">Loading profile...</p>
       </div>
     </div>
   );
@@ -69,8 +69,8 @@ const Profile = () => {
             {initials}
           </div>
           <div className="flex-1 text-center sm:text-left">
-            <h1 className="text-2xl font-black text-gray-800">{user.name}</h1>
-            <p className="text-gray-500 dark:text-gray-400 dark:text-gray-500 text-sm mt-0.5">{user.email}</p>
+            <h1 className="text-2xl font-black text-gray-800 dark:text-gray-100">{user.name}</h1>
+            <p className="text-gray-500 dark:text-gray-100 text-sm mt-0.5">{user.email}</p>
             <div className="flex flex-wrap gap-2 mt-3 justify-center sm:justify-start">
               <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r ${lvl.bg} shadow-sm`}>
                 {lvl.icon} {rewards?.level || 'None'} Member
@@ -97,7 +97,7 @@ const Profile = () => {
         {/* Points Breakdown */}
         {rewards && (
           <div className="backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-3xl shadow-xl p-6 mb-6">
-            <h2 className="text-lg font-bold text-gray-800 mb-4">🌿 Eco Points Breakdown</h2>
+            <h2 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4">🌿 Eco Points Breakdown</h2>
             <div className="grid grid-cols-3 gap-3">
               {[
                 { label: 'Login', pts: rewards.loginPoints, icon: '🔐', color: 'from-blue-400 to-cyan-500' },
@@ -109,8 +109,8 @@ const Profile = () => {
                     <span className="text-2xl">{item.icon}</span>
                   </div>
                   <div className="bg-white dark:bg-gray-900 p-3 text-center">
-                    <p className="text-xl font-black text-gray-800">{item.pts}</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 dark:text-gray-500 font-medium">{item.label}</p>
+                    <p className="text-xl font-black text-gray-800 dark:text-gray-100">{item.pts}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-100 font-medium">{item.label}</p>
                   </div>
                 </div>
               ))}
@@ -118,7 +118,7 @@ const Profile = () => {
 
             {/* Progress bar */}
             <div className="mt-5">
-              <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 dark:text-gray-500 mb-1">
+              <div className="flex justify-between text-xs text-gray-500 dark:text-gray-100 mb-1">
                 <span>Progress to Gold (200 pts)</span>
                 <span>{rewards.points} / 200</span>
               </div>
@@ -143,8 +143,8 @@ const Profile = () => {
               <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform`}>
                 {item.icon}
               </div>
-              <p className="font-semibold text-gray-800 text-sm">{item.label}</p>
-              <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{item.sub}</p>
+              <p className="font-semibold text-gray-800 dark:text-gray-100 text-sm">{item.label}</p>
+              <p className="text-xs text-gray-400 dark:text-gray-100 mt-0.5">{item.sub}</p>
             </button>
           ))}
         </div>
@@ -152,13 +152,13 @@ const Profile = () => {
         {/* Recent Orders */}
         <div className="backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-3xl shadow-xl p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-bold text-gray-800">📦 Recent Orders</h2>
+            <h2 className="text-lg font-bold text-gray-800 dark:text-gray-100">📦 Recent Orders</h2>
             <button onClick={() => navigate('/orders')} className="text-xs text-green-600 hover:underline font-medium">View all →</button>
           </div>
           {recentOrders.length === 0 ? (
             <div className="text-center py-10">
               <div className="text-5xl mb-3">🛒</div>
-              <p className="text-gray-400 dark:text-gray-500 text-sm">No orders yet. Start shopping!</p>
+              <p className="text-gray-400 dark:text-gray-100 text-sm">No orders yet. Start shopping!</p>
               <button onClick={() => navigate('/buyer')}
                 className="mt-3 px-5 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm rounded-xl font-semibold hover:shadow-lg transition-all">
                 Browse Products
@@ -172,9 +172,9 @@ const Profile = () => {
                     📦
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs text-gray-400 dark:text-gray-500 font-mono truncate">#{order._id.slice(-8).toUpperCase()}</p>
-                    <p className="text-sm font-semibold text-gray-700 dark:text-gray-200">{currency}{order.amount}</p>
-                    <p className="text-xs text-gray-400 dark:text-gray-500">{new Date(order.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</p>
+                    <p className="text-xs text-gray-400 dark:text-gray-100 font-mono truncate">#{order._id.slice(-8).toUpperCase()}</p>
+                    <p className="text-sm font-semibold text-gray-700 dark:text-gray-100">{currency}{order.amount}</p>
+                    <p className="text-xs text-gray-400 dark:text-gray-100">{new Date(order.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</p>
                   </div>
                   <div className="text-right shrink-0">
                     <span className={`px-2 py-1 rounded-full text-xs font-semibold ${

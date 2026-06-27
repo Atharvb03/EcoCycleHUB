@@ -293,7 +293,7 @@ const onSubmitHandler = async (event) => {
                                           ${method === 'cod' ? 'border-green-500' : 'border-gray-400'}`}>
                                 {method === 'cod' && <div className='w-3 h-3 bg-green-500 rounded-full animate-scale-in' />}
                             </div>
-                            <p className='text-gray-700 dark:text-gray-200 text-sm font-semibold mx-2'>💵 CASH ON DELIVERY</p>
+                            <p className='text-gray-700 dark:text-gray-100 text-sm font-semibold mx-2'>💵 CASH ON DELIVERY</p>
                         </div>
                     </div>
 

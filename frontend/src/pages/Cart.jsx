@@ -43,7 +43,7 @@ const Cart = () => {
         {cartData.length === 0 ? (
           <div className='text-center py-20 animate-fade-in-up'>
             <div className='text-6xl mb-4'>🛒</div>
-            <p className='text-xl text-gray-600 dark:text-gray-300'>Your cart is empty</p>
+            <p className='text-xl text-gray-600 dark:text-gray-100'>Your cart is empty</p>
             <button 
               onClick={() => navigate('/collection')}
               className='mt-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-3 rounded-xl

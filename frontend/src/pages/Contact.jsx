@@ -35,7 +35,7 @@ const Contact = () => {
                   Our Store
                 </p>
               </div>
-              <p className='text-gray-700 dark:text-gray-200 leading-relaxed'>
+              <p className='text-gray-700 dark:text-gray-100 leading-relaxed'>
                 Raj Kadu, Atharv Bendkhale <br /> 
                 Khed, India
               </p>
@@ -51,22 +51,22 @@ const Contact = () => {
               </div>
               <div className='space-y-3'>
                 <a href='tel:8261825587' 
-                   className='flex items-center gap-2 text-gray-700 dark:text-gray-200 hover:text-green-600 transition-colors'>
+                   className='flex items-center gap-2 text-gray-700 dark:text-gray-100 hover:text-green-600 transition-colors'>
                   <span className='text-xl'>📱</span>
                   <span>8261825587</span>
                 </a>
                 <a href='tel:8446379837' 
-                   className='flex items-center gap-2 text-gray-700 dark:text-gray-200 hover:text-green-600 transition-colors'>
+                   className='flex items-center gap-2 text-gray-700 dark:text-gray-100 hover:text-green-600 transition-colors'>
                   <span className='text-xl'>📱</span>
                   <span>8446379837</span>
                 </a>
                 <a href='mailto:rajkadu2700@gmail.com' 
-                   className='flex items-center gap-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 transition-colors'>
+                   className='flex items-center gap-2 text-gray-700 dark:text-gray-100 hover:text-blue-600 transition-colors'>
                   <span className='text-xl'>✉️</span>
                   <span>rajkadu2700@gmail.com</span>
                 </a>
                 <a href='mailto:atharvb03@gmail.com' 
-                   className='flex items-center gap-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 transition-colors'>
+                   className='flex items-center gap-2 text-gray-700 dark:text-gray-100 hover:text-blue-600 transition-colors'>
                   <span className='text-xl'>✉️</span>
                   <span>atharvb03@gmail.com</span>
                 </a>

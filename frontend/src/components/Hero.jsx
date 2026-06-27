@@ -24,7 +24,7 @@ const Hero = () => {
             Turn Waste Into Worth
           </h1>
 
-          <p className='text-gray-600 dark:text-gray-300 dark:text-gray-300 text-sm md:text-base mb-6 animate-fade-in-up' style={{ animationDelay: '0.4s' }}>
+          <p className='text-gray-600 dark:text-gray-100 text-sm md:text-base mb-6 animate-fade-in-up' style={{ animationDelay: '0.4s' }}>
             Join thousands making a difference. Recycle, earn rewards, and save the planet!
           </p>
         </div>

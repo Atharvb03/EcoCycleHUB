@@ -126,11 +126,11 @@ const Rewards = () => {
              style={{ animationDelay: '0.2s' }}>
           <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
             <div className="text-center sm:text-left">
-              <p className="text-gray-600 dark:text-gray-300 mb-2">Current Level</p>
+              <p className="text-gray-600 dark:text-gray-100 mb-2">Current Level</p>
               <h2 className="text-5xl font-black bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
                 {level}
               </h2>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">
+              <p className="text-sm text-gray-600 dark:text-gray-100 mt-2">
                 {points < 50 && '🎯 Earn 50 points to reach Bronze!'}
                 {points >= 50 && points < 100 && '🥉 Bronze: 50–99 pts'}
                 {points >= 100 && points < 200 && '🥈 Silver: 100–199 pts'}
@@ -150,8 +150,8 @@ const Rewards = () => {
           {/* Progress Bar */}
           <div className="mt-6">
             <div className="flex justify-between mb-2">
-              <span className="text-sm font-semibold text-gray-700 dark:text-gray-200">Progress to next level</span>
-              <span className="text-sm text-gray-600 dark:text-gray-300">{points} / 200</span>
+              <span className="text-sm font-semibold text-gray-700 dark:text-gray-100">Progress to next level</span>
+              <span className="text-sm text-gray-600 dark:text-gray-100">{points} / 200</span>
             </div>
             <div className="relative h-6 bg-gray-200 rounded-full overflow-hidden shadow-inner">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" 
@@ -180,7 +180,7 @@ const Rewards = () => {
               icon="🔐"
               color="from-blue-400 via-cyan-500 to-teal-600"
             />
-            <p className="text-xs text-gray-600 dark:text-gray-300 mt-2 text-center">+10 pts each login</p>
+            <p className="text-xs text-gray-600 dark:text-gray-100 mt-2 text-center">+10 pts each login</p>
           </div>
 
           <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
@@ -190,7 +190,7 @@ const Rewards = () => {
               icon="🛍️"
               color="from-purple-400 via-pink-500 to-red-600"
             />
-            <p className="text-xs text-gray-600 dark:text-gray-300 mt-2 text-center">+20 pts per order</p>
+            <p className="text-xs text-gray-600 dark:text-gray-100 mt-2 text-center">+20 pts per order</p>
           </div>
 
           <div className="animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
@@ -200,7 +200,7 @@ const Rewards = () => {
               icon="♻️"
               color="from-green-400 via-emerald-500 to-teal-600"
             />
-            <p className="text-xs text-gray-600 dark:text-gray-300 mt-2 text-center">+20 pts per submission</p>
+            <p className="text-xs text-gray-600 dark:text-gray-100 mt-2 text-center">+20 pts per submission</p>
           </div>
         </div>
 
@@ -212,14 +212,14 @@ const Rewards = () => {
           </h3>
 
           {lbLoading ? (
-            <div className="text-center py-10 text-gray-500 dark:text-gray-400 dark:text-gray-500 animate-pulse">Loading leaderboard...</div>
+            <div className="text-center py-10 text-gray-500 dark:text-gray-100 animate-pulse">Loading leaderboard...</div>
           ) : leaderboard.length === 0 ? (
-            <div className="text-center py-10 text-gray-400 dark:text-gray-500">No data yet. Be the first to earn points!</div>
+            <div className="text-center py-10 text-gray-400 dark:text-gray-100">No data yet. Be the first to earn points!</div>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="bg-gradient-to-r from-green-100 to-blue-100 dark:from-emerald-900 dark:to-slate-800 text-gray-700 dark:text-gray-200">
+                  <tr className="bg-gradient-to-r from-green-100 to-blue-100 dark:from-emerald-900 dark:to-slate-800 text-gray-700 dark:text-gray-100">
                     <th className="px-3 py-3 text-left rounded-tl-xl">Rank</th>
                     <th className="px-3 py-3 text-left">Name</th>
                     <th className="px-3 py-3 text-left">Email</th>
@@ -246,17 +246,17 @@ const Rewards = () => {
                         <td className="px-3 py-3">
                           <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold
                             ${idx === 0 ? 'bg-yellow-400 text-yellow-900' :
-                              idx === 1 ? 'bg-gray-300 text-gray-800' :
+                              idx === 1 ? 'bg-gray-300 text-gray-800 dark:text-gray-100' :
                               idx === 2 ? 'bg-amber-600 text-white' :
-                              'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300'}`}>
+                              'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-100'}`}>
                             {idx + 1}
                           </span>
                         </td>
-                        <td className="px-3 py-3 text-gray-800">
+                        <td className="px-3 py-3 text-gray-800 dark:text-gray-100">
                           {user.name}
                           {isMe && <span className="ml-2 text-xs bg-green-500 text-white px-2 py-0.5 rounded-full font-bold">You</span>}
                         </td>
-                        <td className="px-3 py-3 text-gray-500 dark:text-gray-400 dark:text-gray-500 text-xs">{user.email}</td>
+                        <td className="px-3 py-3 text-gray-500 dark:text-gray-100 text-xs">{user.email}</td>
                         <td className="px-3 py-3 text-center font-bold text-blue-700">{user.points}</td>
                         <td className="px-3 py-3 text-center">
                           <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold"
@@ -299,20 +299,20 @@ const Rewards = () => {
               </div>
               <div className="p-6 overflow-y-auto max-h-[55vh]">
                 {historyLoading ? (
-                  <div className="text-center py-8 text-gray-400 dark:text-gray-500 animate-pulse">Loading...</div>
+                  <div className="text-center py-8 text-gray-400 dark:text-gray-100 animate-pulse">Loading...</div>
                 ) : historyUser.submissions.length === 0 ? (
-                  <div className="text-center py-8 text-gray-400 dark:text-gray-500">No recycle submissions yet.</div>
+                  <div className="text-center py-8 text-gray-400 dark:text-gray-100">No recycle submissions yet.</div>
                 ) : (
                   <div className="flex flex-col gap-3">
                     {historyUser.submissions.map((s, i) => (
                       <div key={i} className="bg-green-50 border border-green-100 dark:border-emerald-900/60 rounded-2xl p-4">
                         <div className="flex justify-between items-start">
                           <div>
-                            <p className="font-semibold text-gray-800">{s.productName}</p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 dark:text-gray-500 mt-1">
+                            <p className="font-semibold text-gray-800 dark:text-gray-100">{s.productName}</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-100 mt-1">
                               {s.actionType} · {s.centerName || 'Center #' + s.centerId}
                             </p>
-                            <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">
+                            <p className="text-xs text-gray-400 dark:text-gray-100 mt-1">
                               {new Date(s.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
                             </p>
                           </div>
@@ -336,7 +336,7 @@ const Rewards = () => {
             🏆 Certificates & Badges
           </h3>
           
-          <p className="text-sm text-gray-700 dark:text-gray-200 mb-6">
+          <p className="text-sm text-gray-700 dark:text-gray-100 mb-6">
             Unlock exclusive badges and certificates as you level up! 🎖️
           </p>
 
@@ -353,14 +353,14 @@ const Rewards = () => {
               </button>
 
               {points < 200 && (
-                <p className="text-sm text-gray-600 dark:text-gray-300">
+                <p className="text-sm text-gray-600 dark:text-gray-100">
                   Keep going! Earn more points to upgrade to {points < 100 ? 'Silver (100+)' : 'Gold (200+)'} 🚀
                 </p>
               )}
             </div>
           ) : (
             <div className="bg-yellow-50 border-2 border-yellow-200 rounded-2xl p-6">
-              <p className="text-sm text-gray-700 dark:text-gray-200">
+              <p className="text-sm text-gray-700 dark:text-gray-100">
                 🎯 Earn at least 50 points to unlock your first Bronze badge!
               </p>
             </div>

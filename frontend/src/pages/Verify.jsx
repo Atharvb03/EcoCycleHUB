@@ -51,7 +51,7 @@ const Verify = () => {
                 <h2 className='text-2xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-2'>
                     Verifying Payment
                 </h2>
-                <p className='text-gray-600 dark:text-gray-300'>Please wait while we confirm your order...</p>
+                <p className='text-gray-600 dark:text-gray-100'>Please wait while we confirm your order...</p>
                 
                 {/* Loading Animation */}
                 <div className='mt-6 flex justify-center gap-2'>

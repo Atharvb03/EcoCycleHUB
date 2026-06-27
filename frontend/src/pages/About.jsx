@@ -26,7 +26,7 @@ const About = () => {
             </div>
           </div>
           
-          <div className='flex flex-col justify-center gap-6 md:w-2/4 text-gray-700 dark:text-gray-200 animate-fade-in-up' 
+          <div className='flex flex-col justify-center gap-6 md:w-2/4 text-gray-700 dark:text-gray-100 animate-fade-in-up' 
                style={{ animationDelay: '0.2s' }}>
             <p className='leading-relaxed'>
               EcoCycleHub was born out of a passion for environmental sustainability and a desire to revolutionize 
@@ -67,7 +67,7 @@ const About = () => {
             <b className='text-lg bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent'>
               Verified Network
             </b>
-            <p className='text-gray-600 dark:text-gray-300 mt-3 leading-relaxed'>
+            <p className='text-gray-600 dark:text-gray-100 mt-3 leading-relaxed'>
               We meticulously select and vet each recycling center to ensure they meet our stringent 
               environmental and operational standards.
             </p>
@@ -80,7 +80,7 @@ const About = () => {
             <b className='text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>
               Convenience
             </b>
-            <p className='text-gray-600 dark:text-gray-300 mt-3 leading-relaxed'>
+            <p className='text-gray-600 dark:text-gray-100 mt-3 leading-relaxed'>
               With our user-friendly interface and hassle-free recycling process, responsible waste management 
               has never been easier.
             </p>
@@ -93,7 +93,7 @@ const About = () => {
             <b className='text-lg bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent'>
               Exceptional Support
             </b>
-            <p className='text-gray-600 dark:text-gray-300 mt-3 leading-relaxed'>
+            <p className='text-gray-600 dark:text-gray-100 mt-3 leading-relaxed'>
               Our team of dedicated environmental professionals is here to assist you every step of the way, 
               ensuring your positive impact is our top priority.
             </p>

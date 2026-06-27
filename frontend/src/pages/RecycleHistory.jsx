@@ -87,8 +87,8 @@ const RecycleHistory = () => {
                 {submissions.length === 0 ? (
                     <div className="bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 backdrop-blur-sm p-12 rounded-3xl text-center shadow-2xl border border-gray-100 dark:border-gray-800 animate-scale-in">
                         <div className="text-8xl mb-6 animate-bounce-slow">📦</div>
-                        <p className="text-xl text-gray-700 dark:text-gray-200 mb-4 font-semibold">No submissions yet</p>
-                        <p className="text-gray-600 dark:text-gray-300 mb-6">Visit the Centers page to submit your first recycle or repair request!</p>
+                        <p className="text-xl text-gray-700 dark:text-gray-100 mb-4 font-semibold">No submissions yet</p>
+                        <p className="text-gray-600 dark:text-gray-100 mb-6">Visit the Centers page to submit your first recycle or repair request!</p>
                         <a href="/centers" 
                            className="inline-block bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-full font-semibold
                                     hover:shadow-lg hover:shadow-green-500/50 transform hover:scale-105 hover:-translate-y-1
@@ -114,8 +114,8 @@ const RecycleHistory = () => {
                                 <div className="p-6">
                                     <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
                                         <div className="flex-1">
-                                            <h3 className="text-xl font-bold text-gray-800 mb-2">{submission.productName}</h3>
-                                            <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                                            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">{submission.productName}</h3>
+                                            <p className="text-sm text-gray-600 dark:text-gray-100 mb-3">
                                                 {submission.productDescription || 'No description provided'}
                                             </p>
                                             <div className="flex flex-wrap gap-3 text-sm">
@@ -141,7 +141,7 @@ const RecycleHistory = () => {
                                             }`}>
                                                 {submission.actionType === 'recycle' ? '♻️ Recycle' : '🔧 Repair'}
                                             </span>
-                                            <p className="text-xs text-gray-500 dark:text-gray-400 dark:text-gray-500 mt-2">
+                                            <p className="text-xs text-gray-500 dark:text-gray-100 mt-2">
                                                 {formatDate(submission.createdAt || submission.date)}
                                             </p>
                                         </div>
@@ -150,19 +150,19 @@ const RecycleHistory = () => {
                                     <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
                                         {(submission.centerId || submission.centerName) ? (
                                             <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-900 dark:to-slate-900 p-4 rounded-2xl">
-                                                <p className="text-sm font-semibold text-gray-800 mb-1 flex items-center gap-2">
+                                                <p className="text-sm font-semibold text-gray-800 dark:text-gray-100 mb-1 flex items-center gap-2">
                                                     <span className="text-lg">🏢</span>
                                                     {submission.centerId?.name || submission.centerName}
                                                 </p>
                                                 {submission.centerId?.address && (
-                                                <p className="text-sm text-gray-600 dark:text-gray-300 flex items-start gap-2">
+                                                <p className="text-sm text-gray-600 dark:text-gray-100 flex items-start gap-2">
                                                     <span className="text-lg">📍</span>
                                                     <span>{submission.centerId.address}</span>
                                                 </p>
                                                 )}
                                             </div>
                                         ) : (
-                                            <p className="text-sm text-gray-500 dark:text-gray-400 dark:text-gray-500">Center information not available</p>
+                                            <p className="text-sm text-gray-500 dark:text-gray-100 dark:text-gray-100">Center information not available</p>
                                         )}
                                     </div>
 

@@ -26,7 +26,7 @@ const ProductItem = ({id,image,name,price}) => {
         
         {/* Product Info */}
         <div className='p-4 relative z-10'>
-          <p className='text-sm text-gray-700 dark:text-gray-200 dark:text-gray-200 font-medium mb-2 line-clamp-2 group-hover:text-green-600 dark:group-hover:text-green-400 
+          <p className='text-sm text-gray-700 dark:text-gray-100 font-medium mb-2 line-clamp-2 group-hover:text-green-600 dark:group-hover:text-green-400 
                        transition-colors duration-300'>
             {name}
           </p>

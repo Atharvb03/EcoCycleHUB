@@ -76,14 +76,14 @@ const Product = () => {
               <img src={assets.star_icon} alt="" className="w-4" />
               <img src={assets.star_icon} alt="" className="w-4" />
               <img src={assets.star_dull_icon} alt="" className="w-4" />
-              <p className='pl-2 text-gray-600 dark:text-gray-300'>(122)</p>
+              <p className='pl-2 text-gray-600 dark:text-gray-100'>(122)</p>
           </div>
           <p className='mt-5 text-4xl font-bold bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent'>
             {currency}{productData.price}
           </p>
-          <p className='mt-5 text-gray-600 dark:text-gray-300 md:w-4/5 leading-relaxed'>{productData.description}</p>
+          <p className='mt-5 text-gray-600 dark:text-gray-100 md:w-4/5 leading-relaxed'>{productData.description}</p>
           <div className='flex flex-col gap-4 my-8'>
-              <p className='font-semibold text-gray-700 dark:text-gray-200'>Select Size</p>
+              <p className='font-semibold text-gray-700 dark:text-gray-100'>Select Size</p>
               <div className='flex gap-2 flex-wrap'>
                 {productData.sizes.map((item,index)=>(
                   <button 
@@ -110,7 +110,7 @@ const Product = () => {
             <div className='absolute inset-0 bg-gradient-to-r from-emerald-600 to-green-500 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500' />
           </button>
           <hr className='mt-8 sm:w-4/5 border-gray-300' />
-          <div className='text-sm text-gray-600 dark:text-gray-300 mt-5 flex flex-col gap-2'>
+          <div className='text-sm text-gray-600 dark:text-gray-100 mt-5 flex flex-col gap-2'>
               <p className='flex items-center gap-2'>✓ 100% Original product.</p>
               <p className='flex items-center gap-2'>💰 Cash on delivery is available on this product.</p>
               <p className='flex items-center gap-2'>🔄 Easy return and exchange policy within 7 days.</p>
@@ -125,7 +125,7 @@ const Product = () => {
                   {productData.sellerName[0].toUpperCase()}
                 </div>
                 <div>
-                  <p className='font-semibold text-gray-800'>{productData.sellerName}</p>
+                  <p className='font-semibold text-gray-800 dark:text-gray-100'>{productData.sellerName}</p>
                   {productData.sellerMobile && (
                     <a href={`tel:${productData.sellerMobile}`}
                        className='text-sm text-green-600 hover:underline flex items-center gap-1 mt-0.5'>
@@ -149,7 +149,7 @@ const Product = () => {
             Reviews (122)
           </p>
         </div>
-        <div className='flex flex-col gap-4 border-2 border-green-500/30 px-6 py-6 text-sm text-gray-600 dark:text-gray-300 backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 rounded-b-xl rounded-tr-xl shadow-xl'>
+        <div className='flex flex-col gap-4 border-2 border-green-500/30 px-6 py-6 text-sm text-gray-600 dark:text-gray-100 backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 rounded-b-xl rounded-tr-xl shadow-xl'>
           <p>An e-commerce website is an online platform that facilitates the buying and selling of products or services over the internet. It serves as a virtual marketplace where businesses and individuals can showcase their products, interact with customers, and conduct transactions without the need for a physical presence. E-commerce websites have gained immense popularity due to their convenience, accessibility, and the global reach they offer.</p>
           <p>E-commerce websites typically display products or services along with detailed descriptions, images, prices, and any available variations (e.g., sizes, colors). Each product usually has its own dedicated page with relevant information.</p>
         </div>

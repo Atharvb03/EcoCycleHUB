@@ -53,7 +53,7 @@ const Orders = () => {
         {orderData.length === 0 ? (
           <div className='text-center py-20 animate-fade-in-up'>
             <div className='text-6xl mb-4'>📦</div>
-            <p className='text-xl text-gray-600 dark:text-gray-300'>No orders yet</p>
+            <p className='text-xl text-gray-600 dark:text-gray-100'>No orders yet</p>
             <button 
               onClick={() => navigate('/collection')}
               className='mt-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-3 rounded-xl
@@ -87,15 +87,15 @@ const Orders = () => {
                             <p className='sm:text-base font-semibold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent'>
                               {item.name}
                             </p>
-                            <div className='flex items-center gap-3 mt-2 text-base text-gray-700 dark:text-gray-200 flex-wrap'>
+                            <div className='flex items-center gap-3 mt-2 text-base text-gray-700 dark:text-gray-100 flex-wrap'>
                               <span className='font-bold text-green-600'>{currency}{item.price}</span>
                               <span className='px-3 py-1 bg-blue-50 border-2 border-blue-500/30 rounded-lg'>Qty: {item.quantity}</span>
                               <span className='px-3 py-1 bg-purple-50 border-2 border-purple-500/30 rounded-lg'>Size: {item.size}</span>
                             </div>
-                            <p className='mt-2 text-gray-600 dark:text-gray-300'>
+                            <p className='mt-2 text-gray-600 dark:text-gray-100'>
                               <span className='font-medium'>Date:</span> {new Date(item.date).toDateString()}
                             </p>
-                            <p className='mt-1 text-gray-600 dark:text-gray-300'>
+                            <p className='mt-1 text-gray-600 dark:text-gray-100'>
                               <span className='font-medium'>Payment:</span> {item.paymentMethod}
                             </p>
                           </div>
