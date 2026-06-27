@@ -355,9 +355,10 @@ async def predict_price(
         if os.path.exists(temp_path):
             os.remove(temp_path)
 
+    ml_display = f"{ml_price:.0f}" if ml_price else "N/A"
     print(f"[predict] text='{full_text[:60]}' cat={'E' if is_electronics else 'F'} "
-          f"ml={ml_price:.0f if ml_price else 'N/A'} rule={rule_price:.0f} "
-          f"final=₹{final_price:.0f}")
+          f"ml={ml_display} rule={rule_price:.0f} "
+          f"final=INR {final_price:.0f}")
 
     return {
         "predictedPrice":     round(final_price, 2),
