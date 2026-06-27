@@ -8,7 +8,7 @@ const ProductItem = ({id,image,name,price}) => {
 
   return (
     <Link onClick={()=>scrollTo(0,0)} to={`/product/${id}`}>
-      <div className='group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-lg
+      <div className='group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 dark:border-gray-800 shadow-lg
                       hover:scale-105 hover:shadow-2xl hover:shadow-green-500/20
                       transition-all duration-500 ease-out hover:rotate-1'>
         
@@ -26,7 +26,7 @@ const ProductItem = ({id,image,name,price}) => {
         
         {/* Product Info */}
         <div className='p-4 relative z-10'>
-          <p className='text-sm text-gray-700 dark:text-gray-200 font-medium mb-2 line-clamp-2 group-hover:text-green-600 dark:group-hover:text-green-400 
+          <p className='text-sm text-gray-700 dark:text-gray-200 dark:text-gray-200 font-medium mb-2 line-clamp-2 group-hover:text-green-600 dark:group-hover:text-green-400 
                        transition-colors duration-300'>
             {name}
           </p>

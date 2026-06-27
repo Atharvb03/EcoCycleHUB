@@ -339,7 +339,7 @@ function RecycleRepairFinder() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 p-10">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950 p-10">
       {/* Animated Background */}
       <div className="fixed top-0 right-0 w-96 h-96 bg-green-400/10 rounded-full blur-3xl animate-pulse pointer-events-none" />
       <div className="fixed bottom-0 left-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
@@ -373,17 +373,17 @@ function RecycleRepairFinder() {
           </button>
 
           {/* Manual origin for directions — useful when browser location is wrong */}
-          <div className="flex flex-1 items-center gap-2 bg-white/80 backdrop-blur-sm border-2 border-blue-200 rounded-full px-4 py-2 shadow">
-            <span className="text-gray-400 text-sm whitespace-nowrap">🗺️ My location:</span>
+          <div className="flex flex-1 items-center gap-2 bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 backdrop-blur-sm border-2 border-blue-200 rounded-full px-4 py-2 shadow">
+            <span className="text-gray-400 dark:text-gray-500 text-sm whitespace-nowrap">🗺️ My location:</span>
             <input
               type="text"
               value={manualOrigin}
               onChange={e => setManualOrigin(e.target.value)}
               placeholder="e.g. Khed, Ratnagiri (for accurate directions)"
-              className="flex-1 bg-transparent text-sm focus:outline-none text-gray-700 placeholder-gray-400"
+              className="flex-1 bg-transparent text-sm focus:outline-none text-gray-700 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500"
             />
             {manualOrigin && (
-              <button onClick={() => setManualOrigin('')} className="text-gray-400 hover:text-red-500 text-xs">✕</button>
+              <button onClick={() => setManualOrigin('')} className="text-gray-400 dark:text-gray-500 hover:text-red-500 text-xs">✕</button>
             )}
           </div>
         </div>
@@ -391,7 +391,7 @@ function RecycleRepairFinder() {
         {loading && (
           <div className="flex flex-col items-center py-20 animate-fade-in">
             <div className="text-6xl animate-spin-slow mb-4">🔄</div>
-            <p className="text-gray-600">Finding centers near you...</p>
+            <p className="text-gray-600 dark:text-gray-300">Finding centers near you...</p>
           </div>
         )}
         
@@ -408,7 +408,7 @@ function RecycleRepairFinder() {
           <>
             {/* Distance filter chips */}
             <div className="flex items-center gap-2 mb-4 flex-wrap animate-fade-in-up">
-              <span className="text-sm text-gray-500 font-medium">Filter by distance:</span>
+              <span className="text-sm text-gray-500 dark:text-gray-400 dark:text-gray-500 font-medium">Filter by distance:</span>
               {[5, 10, 25, 50].map(km => (
                 <button
                   key={km}
@@ -416,7 +416,7 @@ function RecycleRepairFinder() {
                   className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 ${
                     distanceFilter === km
                       ? 'bg-gradient-to-r from-green-500 to-blue-500 text-white shadow-md'
-                      : 'bg-white/80 text-gray-600 border border-gray-200 hover:border-green-400'
+                      : 'bg-white/80 dark:bg-gray-900/85 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-green-400'
                   }`}
                 >
                   {km} km
@@ -424,7 +424,7 @@ function RecycleRepairFinder() {
               ))}
             </div>
 
-            <p className="text-gray-600 mb-6 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            <p className="text-gray-600 dark:text-gray-300 mb-6 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
               📍 Showing {locations.filter(l => parseFloat(l.distanceNum) <= distanceFilter).length} of {locations.length} centers within {distanceFilter} km
             </p>
           </>
@@ -434,7 +434,7 @@ function RecycleRepairFinder() {
           {locations.filter(l => parseFloat(l.distanceNum) <= distanceFilter).map((loc, index) => (
             <div 
               key={loc.id} 
-              className="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100
+              className="group bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-800
                        hover:scale-105 hover:shadow-2xl hover:shadow-green-500/20
                        transition-all duration-500 hover:-rotate-1 animate-fade-in-up"
               style={{ animationDelay: `${0.5 + index * 0.1}s` }}
@@ -451,7 +451,7 @@ function RecycleRepairFinder() {
                   {loc.type === 'recycle' ? '♻️ Recycle' : loc.type === 'repair' ? '🔧 Repair' : '🔄 Both'}
                 </span>
                 {loc.distance && (
-                  <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-full">
+                  <span className="text-sm text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">
                     📏 {loc.distance}
                   </span>
                 )}
@@ -460,7 +460,7 @@ function RecycleRepairFinder() {
               <h3 className="font-bold text-xl mb-2 bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
                 {loc.name}
               </h3>
-              <p className="text-sm text-gray-600 mb-4 flex items-start gap-2">
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 flex items-start gap-2">
                 <span className="text-lg">📍</span>
                 <span>{loc.address}</span>
               </p>
@@ -518,16 +518,16 @@ function RecycleRepairFinder() {
         {locations.length > 0 && locations.filter(l => parseFloat(l.distanceNum) <= distanceFilter).length === 0 && (
           <div className="text-center py-16 animate-fade-in-up">
             <p className="text-5xl mb-3">🔍</p>
-            <p className="text-lg text-gray-600 mb-2">No centers within {distanceFilter} km</p>
-            <p className="text-sm text-gray-500">Try a larger distance filter above</p>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-2">No centers within {distanceFilter} km</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 dark:text-gray-500">Try a larger distance filter above</p>
           </div>
         )}
 
         {locations.length === 0 && !loading && (
           <div className="text-center py-20 animate-fade-in-up">
             <div className="text-8xl mb-4">🔍</div>
-            <p className="text-xl text-gray-600 mb-2">No centers found nearby</p>
-            <p className="text-sm text-gray-500">Try using your location or check back later</p>
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-2">No centers found nearby</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 dark:text-gray-500">Try using your location or check back later</p>
           </div>
         )}
       </div>
@@ -536,27 +536,27 @@ function RecycleRepairFinder() {
       {qrCenter && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center z-50 p-4"
              onClick={() => setQrCenter(null)}>
-          <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-sm w-full text-center"
+          <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-8 max-w-sm w-full text-center"
                onClick={e => e.stopPropagation()}>
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-bold text-gray-800">Open on Your Phone 📱</h3>
               <button onClick={() => setQrCenter(null)}
-                className="w-8 h-8 bg-gray-100 rounded-full hover:bg-red-500 hover:text-white transition-all flex items-center justify-center font-bold">
+                className="w-8 h-8 bg-gray-100 dark:bg-gray-800 rounded-full hover:bg-red-500 hover:text-white transition-all flex items-center justify-center font-bold">
                 ✕
               </button>
             </div>
 
-            <p className="text-sm text-gray-500 mb-5">
+            <p className="text-sm text-gray-500 dark:text-gray-400 dark:text-gray-500 mb-5">
               Scan this QR code with your phone camera.<br/>
               Google Maps will open with your phone's GPS as origin — much more accurate!
             </p>
 
-            <div className="flex justify-center mb-5 p-4 bg-gray-50 rounded-2xl border border-gray-200">
+            <div className="flex justify-center mb-5 p-4 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700">
               <QRCodeSVG value={qrCenter.mapsUrl} size={200} level="H" />
             </div>
 
-            <p className="text-xs font-semibold text-gray-700 mb-1">{qrCenter.name}</p>
-            <p className="text-xs text-gray-500 mb-5">{qrCenter.address}</p>
+            <p className="text-xs font-semibold text-gray-700 dark:text-gray-200 mb-1">{qrCenter.name}</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 dark:text-gray-500 mb-5">{qrCenter.address}</p>
 
             <a href={qrCenter.mapsUrl} target="_blank" rel="noopener noreferrer"
               className="block w-full py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-semibold hover:opacity-90 transition-all">
@@ -569,7 +569,7 @@ function RecycleRepairFinder() {
       {/* Submission Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-md flex items-center justify-center z-50 p-4 animate-fade-in">
-          <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full transform animate-scale-in overflow-hidden">
+          <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl max-w-md w-full transform animate-scale-in overflow-hidden">
             {/* Animated Header Gradient */}
             <div className="h-2 bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 animate-gradient-x" 
                  style={{ backgroundSize: '200% 200%' }} />
@@ -581,7 +581,7 @@ function RecycleRepairFinder() {
                 </h2>
                 <button
                   onClick={closeModal}
-                  className="w-10 h-10 bg-gray-100 rounded-full hover:bg-red-500 hover:text-white 
+                  className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-full hover:bg-red-500 hover:text-white 
                            transition-all duration-300 flex items-center justify-center text-xl font-bold
                            hover:rotate-90 transform"
                 >
@@ -589,13 +589,13 @@ function RecycleRepairFinder() {
                 </button>
               </div>
 
-              <div className="mb-6 p-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl border border-green-100">
+              <div className="mb-6 p-4 bg-gradient-to-r from-green-50 to-blue-50 dark:from-gray-900 dark:to-emerald-950 rounded-2xl border border-green-100 dark:border-emerald-900/60">
                 <p className="font-semibold text-gray-800 mb-1">{selectedCenter?.name}</p>
-                <p className="text-sm text-gray-600 flex items-start gap-2">
+                <p className="text-sm text-gray-600 dark:text-gray-300 flex items-start gap-2">
                   <span>📍</span>
                   <span>{selectedCenter?.address}</span>
                 </p>
-                <p className="text-sm text-gray-600 mt-2 flex items-center gap-2">
+                <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 flex items-center gap-2">
                   <span>📞</span>
                   <span>{selectedCenter?.phone}</span>
                 </p>
@@ -603,7 +603,7 @@ function RecycleRepairFinder() {
 
               <form onSubmit={handleSubmit}>
                 <div className="mb-4">
-                  <label className="block text-sm font-semibold mb-2 text-gray-700">
+                  <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-200">
                     Product Name <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -611,7 +611,7 @@ function RecycleRepairFinder() {
                     value={productName}
                     onChange={(e) => setProductName(e.target.value)}
                     placeholder="e.g., Old Laptop, Plastic Bottles"
-                    className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 
+                    className="w-full border-2 border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 
                              focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent
                              transition-all duration-300"
                     required
@@ -619,7 +619,7 @@ function RecycleRepairFinder() {
                 </div>
 
                 <div className="mb-4">
-                  <label className="block text-sm font-semibold mb-2 text-gray-700">
+                  <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-200">
                     Product Description (Optional)
                   </label>
                   <textarea
@@ -627,20 +627,20 @@ function RecycleRepairFinder() {
                     onChange={(e) => setProductDescription(e.target.value)}
                     placeholder="Any additional details..."
                     rows={3}
-                    className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 
+                    className="w-full border-2 border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 
                              focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent
                              transition-all duration-300 resize-none"
                   />
                 </div>
 
                 <div className="mb-6">
-                  <label className="block text-sm font-semibold mb-2 text-gray-700">
+                  <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-200">
                     Condition <span className="text-red-500">*</span>
                   </label>
                   <select
                     value={condition}
                     onChange={(e) => setCondition(e.target.value)}
-                    className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 
+                    className="w-full border-2 border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 
                              focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent
                              transition-all duration-300"
                   >
@@ -665,7 +665,7 @@ function RecycleRepairFinder() {
                   <button
                     type="button"
                     onClick={closeModal}
-                    className="flex-1 bg-gray-200 text-gray-700 px-6 py-3 rounded-xl font-semibold
+                    className="flex-1 bg-gray-200 text-gray-700 dark:text-gray-200 px-6 py-3 rounded-xl font-semibold
                              hover:bg-gray-300 transition-all duration-300"
                     disabled={submitting}
                   >

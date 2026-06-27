@@ -37,10 +37,10 @@ const Profile = () => {
   }, [token]);
 
   if (loading) return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 flex items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950 flex items-center justify-center">
       <div className="text-center">
         <div className="text-6xl animate-spin-slow mb-4">♻️</div>
-        <p className="text-xl text-gray-500 animate-pulse">Loading profile...</p>
+        <p className="text-xl text-gray-500 dark:text-gray-400 dark:text-gray-500 animate-pulse">Loading profile...</p>
       </div>
     </div>
   );
@@ -51,7 +51,7 @@ const Profile = () => {
   const initials = user.name?.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2) || '?';
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 pb-20 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950 pb-20 relative overflow-hidden">
       {/* Blobs */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-green-400/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
@@ -64,13 +64,13 @@ const Profile = () => {
       <div className="max-w-3xl mx-auto px-4 relative z-10 -mt-16">
 
         {/* Avatar Card */}
-        <div className="backdrop-blur-xl bg-white/90 border border-white/30 rounded-3xl shadow-2xl p-6 mb-6 flex flex-col sm:flex-row items-center sm:items-end gap-5">
+        <div className="backdrop-blur-xl bg-white/90 dark:bg-gray-900/90 dark:bg-gray-900/90 border border-white/30 dark:border-gray-700/60 rounded-3xl shadow-2xl p-6 mb-6 flex flex-col sm:flex-row items-center sm:items-end gap-5">
           <div className={`w-24 h-24 rounded-2xl bg-gradient-to-br ${lvl.bg} flex items-center justify-center text-white text-3xl font-black shadow-xl ring-4 ${lvl.ring} ring-offset-2 shrink-0`}>
             {initials}
           </div>
           <div className="flex-1 text-center sm:text-left">
             <h1 className="text-2xl font-black text-gray-800">{user.name}</h1>
-            <p className="text-gray-500 text-sm mt-0.5">{user.email}</p>
+            <p className="text-gray-500 dark:text-gray-400 dark:text-gray-500 text-sm mt-0.5">{user.email}</p>
             <div className="flex flex-wrap gap-2 mt-3 justify-center sm:justify-start">
               <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r ${lvl.bg} shadow-sm`}>
                 {lvl.icon} {rewards?.level || 'None'} Member
@@ -96,7 +96,7 @@ const Profile = () => {
 
         {/* Points Breakdown */}
         {rewards && (
-          <div className="backdrop-blur-xl bg-white/80 border border-white/20 rounded-3xl shadow-xl p-6 mb-6">
+          <div className="backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-3xl shadow-xl p-6 mb-6">
             <h2 className="text-lg font-bold text-gray-800 mb-4">🌿 Eco Points Breakdown</h2>
             <div className="grid grid-cols-3 gap-3">
               {[
@@ -108,9 +108,9 @@ const Profile = () => {
                   <div className={`bg-gradient-to-br ${item.color} p-3 text-center`}>
                     <span className="text-2xl">{item.icon}</span>
                   </div>
-                  <div className="bg-white p-3 text-center">
+                  <div className="bg-white dark:bg-gray-900 p-3 text-center">
                     <p className="text-xl font-black text-gray-800">{item.pts}</p>
-                    <p className="text-xs text-gray-500 font-medium">{item.label}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 dark:text-gray-500 font-medium">{item.label}</p>
                   </div>
                 </div>
               ))}
@@ -118,11 +118,11 @@ const Profile = () => {
 
             {/* Progress bar */}
             <div className="mt-5">
-              <div className="flex justify-between text-xs text-gray-500 mb-1">
+              <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 dark:text-gray-500 mb-1">
                 <span>Progress to Gold (200 pts)</span>
                 <span>{rewards.points} / 200</span>
               </div>
-              <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
+              <div className="h-3 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
                 <div className={`h-full bg-gradient-to-r ${lvl.bg} rounded-full transition-all duration-1000`}
                      style={{ width: `${Math.min((rewards.points / 200) * 100, 100)}%` }} />
               </div>
@@ -139,18 +139,18 @@ const Profile = () => {
             { icon: '🏅', label: 'Leaderboard', sub: 'See your rank', path: '/rewards', color: 'from-yellow-500 to-orange-500' },
           ].map(item => (
             <button key={item.path} onClick={() => navigate(item.path)}
-              className="backdrop-blur-xl bg-white/80 border border-white/20 rounded-2xl p-4 text-left hover:shadow-xl hover:-translate-y-1 transition-all duration-200 group">
+              className="backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-2xl p-4 text-left hover:shadow-xl hover:-translate-y-1 transition-all duration-200 group">
               <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform`}>
                 {item.icon}
               </div>
               <p className="font-semibold text-gray-800 text-sm">{item.label}</p>
-              <p className="text-xs text-gray-400 mt-0.5">{item.sub}</p>
+              <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{item.sub}</p>
             </button>
           ))}
         </div>
 
         {/* Recent Orders */}
-        <div className="backdrop-blur-xl bg-white/80 border border-white/20 rounded-3xl shadow-xl p-6">
+        <div className="backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-3xl shadow-xl p-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-bold text-gray-800">📦 Recent Orders</h2>
             <button onClick={() => navigate('/orders')} className="text-xs text-green-600 hover:underline font-medium">View all →</button>
@@ -158,7 +158,7 @@ const Profile = () => {
           {recentOrders.length === 0 ? (
             <div className="text-center py-10">
               <div className="text-5xl mb-3">🛒</div>
-              <p className="text-gray-400 text-sm">No orders yet. Start shopping!</p>
+              <p className="text-gray-400 dark:text-gray-500 text-sm">No orders yet. Start shopping!</p>
               <button onClick={() => navigate('/buyer')}
                 className="mt-3 px-5 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm rounded-xl font-semibold hover:shadow-lg transition-all">
                 Browse Products
@@ -167,14 +167,14 @@ const Profile = () => {
           ) : (
             <div className="flex flex-col gap-3">
               {recentOrders.map((order) => (
-                <div key={order._id} className="flex items-center gap-4 p-4 bg-gray-50 rounded-2xl hover:bg-green-50 transition-colors border border-gray-100">
+                <div key={order._id} className="flex items-center gap-4 p-4 bg-gray-50 dark:bg-gray-900 rounded-2xl hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors border border-gray-100 dark:border-gray-800">
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-white text-lg shrink-0">
                     📦
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs text-gray-400 font-mono truncate">#{order._id.slice(-8).toUpperCase()}</p>
-                    <p className="text-sm font-semibold text-gray-700">{currency}{order.amount}</p>
-                    <p className="text-xs text-gray-400">{new Date(order.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</p>
+                    <p className="text-xs text-gray-400 dark:text-gray-500 font-mono truncate">#{order._id.slice(-8).toUpperCase()}</p>
+                    <p className="text-sm font-semibold text-gray-700 dark:text-gray-200">{currency}{order.amount}</p>
+                    <p className="text-xs text-gray-400 dark:text-gray-500">{new Date(order.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</p>
                   </div>
                   <div className="text-right shrink-0">
                     <span className={`px-2 py-1 rounded-full text-xs font-semibold ${

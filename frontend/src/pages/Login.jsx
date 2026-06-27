@@ -94,12 +94,12 @@ const Login = () => {
   const isForgot = currentState.startsWith('forgot')
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 flex items-center justify-center relative overflow-hidden py-20'>
+    <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950 flex items-center justify-center relative overflow-hidden py-20'>
       <div className="absolute top-20 left-10 w-64 h-64 bg-green-400/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
 
-      <div className='relative z-10 flex flex-col items-center w-[90%] sm:max-w-md backdrop-blur-xl bg-white/80 border border-white/20 rounded-3xl shadow-2xl p-8 animate-scale-in'>
+      <div className='relative z-10 flex flex-col items-center w-[90%] sm:max-w-md backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-3xl shadow-2xl p-8 animate-scale-in'>
 
         {/* ── FORGOT PASSWORD FLOWS ── */}
         {isForgot && (
@@ -119,7 +119,7 @@ const Login = () => {
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all
                     ${currentState === step ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg' :
                       ['forgot-email','forgot-otp','forgot-reset'].indexOf(currentState) > i
-                        ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-500'}`}>
+                        ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-500 dark:text-gray-400 dark:text-gray-500'}`}>
                     {['forgot-email','forgot-otp','forgot-reset'].indexOf(currentState) > i ? '✓' : i + 1}
                   </div>
                   {i < 2 && <div className={`flex-1 h-1 rounded-full ${['forgot-email','forgot-otp','forgot-reset'].indexOf(currentState) > i ? 'bg-green-400' : 'bg-gray-200'}`} />}
@@ -130,11 +130,11 @@ const Login = () => {
             {/* Step 1: Email */}
             {currentState === 'forgot-email' && (
               <form onSubmit={handleForgotEmail} className='w-full space-y-4'>
-                <p className='text-sm text-gray-500 text-center mb-2'>Enter your registered email to receive an OTP</p>
+                <p className='text-sm text-gray-500 dark:text-gray-400 dark:text-gray-500 text-center mb-2'>Enter your registered email to receive an OTP</p>
                 <input
                   type="email" required value={fpEmail} onChange={e => setFpEmail(e.target.value)}
                   placeholder='Registered email'
-                  className='w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-orange-400 focus:outline-none transition-all bg-white/90'
+                  className='w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-orange-400 focus:outline-none transition-all bg-white/90 dark:bg-gray-900/90 text-gray-900 dark:text-gray-100'
                 />
                 <button type="submit" disabled={fpLoading}
                   className='w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold px-8 py-4 rounded-xl
@@ -147,18 +147,18 @@ const Login = () => {
             {/* Step 2: OTP */}
             {currentState === 'forgot-otp' && (
               <form onSubmit={e => { e.preventDefault(); setCurrentState('forgot-reset') }} className='w-full space-y-4'>
-                <p className='text-sm text-gray-500 text-center mb-2'>Enter the 6-digit OTP sent to <span className='font-semibold text-gray-700'>{fpEmail}</span></p>
+                <p className='text-sm text-gray-500 dark:text-gray-400 dark:text-gray-500 text-center mb-2'>Enter the 6-digit OTP sent to <span className='font-semibold text-gray-700 dark:text-gray-200'>{fpEmail}</span></p>
                 <input
                   type="text" required maxLength={6} value={fpOtp} onChange={e => setFpOtp(e.target.value)}
                   placeholder='6-digit OTP'
-                  className='w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-orange-400 focus:outline-none transition-all bg-white/90 text-center text-2xl tracking-[0.5em] font-mono'
+                  className='w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-orange-400 focus:outline-none transition-all bg-white/90 dark:bg-gray-900/90 text-gray-900 dark:text-gray-100 text-center text-2xl tracking-[0.5em] font-mono'
                 />
                 <button type="submit"
                   className='w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold px-8 py-4 rounded-xl
                            hover:shadow-lg hover:shadow-orange-500/50 transform hover:-translate-y-1 transition-all duration-300'>
                   Verify OTP
                 </button>
-                <p className='text-center text-sm text-gray-500'>
+                <p className='text-center text-sm text-gray-500 dark:text-gray-400 dark:text-gray-500'>
                   Didn't get it?{' '}
                   <span onClick={() => setCurrentState('forgot-email')} className='text-orange-500 cursor-pointer hover:underline'>Resend</span>
                 </p>
@@ -168,16 +168,16 @@ const Login = () => {
             {/* Step 3: New password */}
             {currentState === 'forgot-reset' && (
               <form onSubmit={handleForgotReset} className='w-full space-y-4'>
-                <p className='text-sm text-gray-500 text-center mb-2'>Set your new password</p>
+                <p className='text-sm text-gray-500 dark:text-gray-400 dark:text-gray-500 text-center mb-2'>Set your new password</p>
                 <input
                   type="password" required minLength={8} value={fpNewPassword} onChange={e => setFpNewPassword(e.target.value)}
                   placeholder='New password (min 8 chars)'
-                  className='w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-orange-400 focus:outline-none transition-all bg-white/90'
+                  className='w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-orange-400 focus:outline-none transition-all bg-white/90 dark:bg-gray-900/90 text-gray-900 dark:text-gray-100'
                 />
                 <input
                   type="password" required value={fpConfirm} onChange={e => setFpConfirm(e.target.value)}
                   placeholder='Confirm new password'
-                  className='w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-orange-400 focus:outline-none transition-all bg-white/90'
+                  className='w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-orange-400 focus:outline-none transition-all bg-white/90 dark:bg-gray-900/90 text-gray-900 dark:text-gray-100'
                 />
                 <button type="submit" disabled={fpLoading}
                   className='w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold px-8 py-4 rounded-xl
@@ -188,7 +188,7 @@ const Login = () => {
             )}
 
             <p onClick={() => setCurrentState('Login')}
-               className='mt-6 text-sm text-gray-500 cursor-pointer hover:text-green-600 transition-colors'>
+               className='mt-6 text-sm text-gray-500 dark:text-gray-400 dark:text-gray-500 cursor-pointer hover:text-green-600 transition-colors'>
               ← Back to Login
             </p>
           </>
@@ -207,18 +207,18 @@ const Login = () => {
             <div className='w-full space-y-4'>
               {currentState === 'Sign Up' && (
                 <input onChange={e => setName(e.target.value)} value={name} type="text"
-                  className='w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-green-500 focus:outline-none transition-all bg-white/90'
+                  className='w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-green-500 focus:outline-none transition-all bg-white/90 dark:bg-gray-900/90 text-gray-900 dark:text-gray-100'
                   placeholder='Name' required />
               )}
               <input onChange={e => setEmail(e.target.value)} value={email} type="email"
-                className='w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-green-500 focus:outline-none transition-all bg-white/90'
+                className='w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-green-500 focus:outline-none transition-all bg-white/90 dark:bg-gray-900/90 text-gray-900 dark:text-gray-100'
                 placeholder='Email' required />
               <input onChange={e => setPassword(e.target.value)} value={password} type="password"
-                className='w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-green-500 focus:outline-none transition-all bg-white/90'
+                className='w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-green-500 focus:outline-none transition-all bg-white/90 dark:bg-gray-900/90 text-gray-900 dark:text-gray-100'
                 placeholder='Password' required />
             </div>
 
-            <div className='w-full flex justify-between text-sm mt-4 text-gray-600'>
+            <div className='w-full flex justify-between text-sm mt-4 text-gray-600 dark:text-gray-300'>
               <p onClick={() => { setFpEmail(email); setCurrentState('forgot-email') }}
                  className='cursor-pointer hover:text-orange-500 transition-colors'>
                 Forgot your password?

@@ -29,7 +29,7 @@ const Product = () => {
   }, [productId,products])
 
   return productData ? (
-    <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 pt-10 pb-20 relative overflow-hidden transition-opacity ease-in duration-500 opacity-100'>
+    <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950 pt-10 pb-20 relative overflow-hidden transition-opacity ease-in duration-500 opacity-100'>
       {/* Animated Background Circles */}
       <div className="absolute top-20 right-10 w-64 h-64 bg-purple-400/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-green-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
@@ -56,7 +56,7 @@ const Product = () => {
                 ))
               }
           </div>
-          <div className='w-full sm:w-[80%] backdrop-blur-xl bg-white/80 border border-white/20 rounded-2xl p-4 shadow-xl overflow-hidden group'>
+          <div className='w-full sm:w-[80%] backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-2xl p-4 shadow-xl overflow-hidden group'>
               <img 
                 className='w-full h-auto rounded-xl transform group-hover:scale-105 transition-transform duration-700' 
                 src={image} 
@@ -66,7 +66,7 @@ const Product = () => {
         </div>
 
         {/* -------- Product Info ---------- */}
-        <div className='flex-1 backdrop-blur-xl bg-white/80 border border-white/20 rounded-2xl p-6 shadow-xl'>
+        <div className='flex-1 backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-2xl p-6 shadow-xl'>
           <h1 className='font-bold text-3xl mt-2 bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent'>
             {productData.name}
           </h1>
@@ -76,14 +76,14 @@ const Product = () => {
               <img src={assets.star_icon} alt="" className="w-4" />
               <img src={assets.star_icon} alt="" className="w-4" />
               <img src={assets.star_dull_icon} alt="" className="w-4" />
-              <p className='pl-2 text-gray-600'>(122)</p>
+              <p className='pl-2 text-gray-600 dark:text-gray-300'>(122)</p>
           </div>
           <p className='mt-5 text-4xl font-bold bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent'>
             {currency}{productData.price}
           </p>
-          <p className='mt-5 text-gray-600 md:w-4/5 leading-relaxed'>{productData.description}</p>
+          <p className='mt-5 text-gray-600 dark:text-gray-300 md:w-4/5 leading-relaxed'>{productData.description}</p>
           <div className='flex flex-col gap-4 my-8'>
-              <p className='font-semibold text-gray-700'>Select Size</p>
+              <p className='font-semibold text-gray-700 dark:text-gray-200'>Select Size</p>
               <div className='flex gap-2 flex-wrap'>
                 {productData.sizes.map((item,index)=>(
                   <button 
@@ -110,7 +110,7 @@ const Product = () => {
             <div className='absolute inset-0 bg-gradient-to-r from-emerald-600 to-green-500 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500' />
           </button>
           <hr className='mt-8 sm:w-4/5 border-gray-300' />
-          <div className='text-sm text-gray-600 mt-5 flex flex-col gap-2'>
+          <div className='text-sm text-gray-600 dark:text-gray-300 mt-5 flex flex-col gap-2'>
               <p className='flex items-center gap-2'>✓ 100% Original product.</p>
               <p className='flex items-center gap-2'>💰 Cash on delivery is available on this product.</p>
               <p className='flex items-center gap-2'>🔄 Easy return and exchange policy within 7 days.</p>
@@ -145,11 +145,11 @@ const Product = () => {
           <b className='border-2 border-green-500 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-3 text-sm rounded-t-xl'>
             Description
           </b>
-          <p className='border-2 border-gray-300 px-6 py-3 text-sm bg-white/80 backdrop-blur-xl rounded-t-xl ml-2'>
+          <p className='border-2 border-gray-300 px-6 py-3 text-sm bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 backdrop-blur-xl rounded-t-xl ml-2'>
             Reviews (122)
           </p>
         </div>
-        <div className='flex flex-col gap-4 border-2 border-green-500/30 px-6 py-6 text-sm text-gray-600 backdrop-blur-xl bg-white/80 rounded-b-xl rounded-tr-xl shadow-xl'>
+        <div className='flex flex-col gap-4 border-2 border-green-500/30 px-6 py-6 text-sm text-gray-600 dark:text-gray-300 backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 rounded-b-xl rounded-tr-xl shadow-xl'>
           <p>An e-commerce website is an online platform that facilitates the buying and selling of products or services over the internet. It serves as a virtual marketplace where businesses and individuals can showcase their products, interact with customers, and conduct transactions without the need for a physical presence. E-commerce websites have gained immense popularity due to their convenience, accessibility, and the global reach they offer.</p>
           <p>E-commerce websites typically display products or services along with detailed descriptions, images, prices, and any available variations (e.g., sizes, colors). Each product usually has its own dedicated page with relevant information.</p>
         </div>

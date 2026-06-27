@@ -30,7 +30,7 @@ const Cart = () => {
   }, [cartItems, products])
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 pt-14 pb-20 relative overflow-hidden'>
+    <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950 pt-14 pb-20 relative overflow-hidden'>
       {/* Animated Background Circles */}
       <div className="absolute top-20 left-10 w-64 h-64 bg-green-400/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
@@ -43,7 +43,7 @@ const Cart = () => {
         {cartData.length === 0 ? (
           <div className='text-center py-20 animate-fade-in-up'>
             <div className='text-6xl mb-4'>🛒</div>
-            <p className='text-xl text-gray-600'>Your cart is empty</p>
+            <p className='text-xl text-gray-600 dark:text-gray-300'>Your cart is empty</p>
             <button 
               onClick={() => navigate('/collection')}
               className='mt-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-3 rounded-xl
@@ -62,7 +62,7 @@ const Cart = () => {
                   return (
                     <div 
                       key={index} 
-                      className='backdrop-blur-xl bg-white/80 border border-white/20 rounded-2xl p-4 shadow-xl
+                      className='backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-2xl p-4 shadow-xl
                                hover:shadow-2xl hover:scale-[1.02] transition-all duration-300
                                grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4
                                animate-fade-in-up'
@@ -91,7 +91,7 @@ const Cart = () => {
                       </div>
                       <input 
                         onChange={(e) => e.target.value === '' || e.target.value === '0' ? null : updateQuantity(item._id, item.size, Number(e.target.value))} 
-                        className='border-2 border-gray-300 rounded-lg max-w-10 sm:max-w-20 px-1 sm:px-2 py-1 text-center
+                        className='border-2 border-gray-300 dark:border-gray-700 rounded-lg max-w-10 sm:max-w-20 px-1 sm:px-2 py-1 text-center
                                  focus:border-green-500 focus:outline-none transition-colors' 
                         type="number" 
                         min={1} 
@@ -112,7 +112,7 @@ const Cart = () => {
             </div>
 
             <div className='flex justify-end my-12 animate-fade-in-up' style={{ animationDelay: '0.3s' }}>
-              <div className='w-full sm:w-[450px] backdrop-blur-xl bg-white/80 border border-white/20 rounded-2xl p-6 shadow-xl'>
+              <div className='w-full sm:w-[450px] backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-2xl p-6 shadow-xl'>
                 <CartTotal />
                 <div className='w-full text-end mt-6'>
                   <button 

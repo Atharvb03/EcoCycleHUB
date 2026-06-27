@@ -3,7 +3,7 @@ import { assets } from '../assets/assets'
 
 const Hero = () => {
   return (
-    <div className='relative flex flex-col sm:flex-row border border-gray-200 dark:border-gray-800 overflow-hidden bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950 h-screen transition-colors duration-300'>
+    <div className='relative flex flex-col sm:flex-row border border-gray-200 dark:border-gray-700 dark:border-gray-800 overflow-hidden bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950 h-screen transition-colors duration-300'>
       <div className='absolute top-0 left-0 w-96 h-96 bg-green-400/20 dark:bg-green-500/10 rounded-full blur-3xl animate-pulse' />
       <div className='absolute bottom-0 right-0 w-96 h-96 bg-blue-400/20 dark:bg-cyan-500/10 rounded-full blur-3xl animate-pulse' style={{ animationDelay: '1s' }} />
       <div className='absolute top-1/2 left-1/2 w-64 h-64 bg-purple-400/10 dark:bg-emerald-400/10 rounded-full blur-3xl animate-pulse' style={{ animationDelay: '2s' }} />
@@ -24,7 +24,7 @@ const Hero = () => {
             Turn Waste Into Worth
           </h1>
 
-          <p className='text-gray-600 dark:text-gray-300 text-sm md:text-base mb-6 animate-fade-in-up' style={{ animationDelay: '0.4s' }}>
+          <p className='text-gray-600 dark:text-gray-300 dark:text-gray-300 text-sm md:text-base mb-6 animate-fade-in-up' style={{ animationDelay: '0.4s' }}>
             Join thousands making a difference. Recycle, earn rewards, and save the planet!
           </p>
         </div>

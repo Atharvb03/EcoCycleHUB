@@ -5,7 +5,7 @@ import NewsletterBox from '../components/NewsletterBox'
 
 const About = () => {
   return (
-    <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50'>
+    <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950'>
       {/* Animated Background */}
       <div className="fixed top-0 right-0 w-96 h-96 bg-green-400/10 rounded-full blur-3xl animate-pulse pointer-events-none" />
       <div className="fixed bottom-0 left-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
@@ -26,7 +26,7 @@ const About = () => {
             </div>
           </div>
           
-          <div className='flex flex-col justify-center gap-6 md:w-2/4 text-gray-700 animate-fade-in-up' 
+          <div className='flex flex-col justify-center gap-6 md:w-2/4 text-gray-700 dark:text-gray-200 animate-fade-in-up' 
                style={{ animationDelay: '0.2s' }}>
             <p className='leading-relaxed'>
               EcoCycleHub was born out of a passion for environmental sustainability and a desire to revolutionize 
@@ -40,7 +40,7 @@ const About = () => {
               hazardous waste, we offer an extensive directory of trusted recycling partners committed to proper 
               waste management and circular economy principles.
             </p>
-            <div className='bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-green-100'>
+            <div className='bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-green-100 dark:border-emerald-900/60'>
               <b className='text-xl bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent'>
                 Our Mission
               </b>
@@ -60,40 +60,40 @@ const About = () => {
 
         <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mb-20 animate-fade-in-up' 
              style={{ animationDelay: '0.6s' }}>
-          <div className='group bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-green-100
+          <div className='group bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-green-100 dark:border-emerald-900/60
                          hover:scale-105 hover:shadow-2xl hover:shadow-green-500/20 
                          transition-all duration-500 hover:-rotate-1'>
             <div className='text-5xl mb-4 animate-bounce-slow'>✓</div>
             <b className='text-lg bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent'>
               Verified Network
             </b>
-            <p className='text-gray-600 mt-3 leading-relaxed'>
+            <p className='text-gray-600 dark:text-gray-300 mt-3 leading-relaxed'>
               We meticulously select and vet each recycling center to ensure they meet our stringent 
               environmental and operational standards.
             </p>
           </div>
           
-          <div className='group bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-blue-100
+          <div className='group bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-blue-100 dark:border-blue-900/60
                          hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 
                          transition-all duration-500 hover:rotate-1'>
             <div className='text-5xl mb-4 animate-bounce-slow' style={{ animationDelay: '0.5s' }}>⚡</div>
             <b className='text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>
               Convenience
             </b>
-            <p className='text-gray-600 mt-3 leading-relaxed'>
+            <p className='text-gray-600 dark:text-gray-300 mt-3 leading-relaxed'>
               With our user-friendly interface and hassle-free recycling process, responsible waste management 
               has never been easier.
             </p>
           </div>
           
-          <div className='group bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-purple-100
+          <div className='group bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-purple-100 dark:border-purple-900/60
                          hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 
                          transition-all duration-500 hover:-rotate-1'>
             <div className='text-5xl mb-4 animate-bounce-slow' style={{ animationDelay: '1s' }}>💚</div>
             <b className='text-lg bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent'>
               Exceptional Support
             </b>
-            <p className='text-gray-600 mt-3 leading-relaxed'>
+            <p className='text-gray-600 dark:text-gray-300 mt-3 leading-relaxed'>
               Our team of dedicated environmental professionals is here to assist you every step of the way, 
               ensuring your positive impact is our top priority.
             </p>

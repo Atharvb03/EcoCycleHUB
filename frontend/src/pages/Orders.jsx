@@ -40,7 +40,7 @@ const Orders = () => {
   },[token])
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 pt-16 pb-20 relative overflow-hidden'>
+    <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950 pt-16 pb-20 relative overflow-hidden'>
       {/* Animated Background Circles */}
       <div className="absolute top-20 right-10 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-green-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
@@ -53,7 +53,7 @@ const Orders = () => {
         {orderData.length === 0 ? (
           <div className='text-center py-20 animate-fade-in-up'>
             <div className='text-6xl mb-4'>📦</div>
-            <p className='text-xl text-gray-600'>No orders yet</p>
+            <p className='text-xl text-gray-600 dark:text-gray-300'>No orders yet</p>
             <button 
               onClick={() => navigate('/collection')}
               className='mt-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-3 rounded-xl
@@ -68,7 +68,7 @@ const Orders = () => {
                 orderData.map((item,index) => (
                   <div 
                     key={index} 
-                    className='backdrop-blur-xl bg-white/80 border border-white/20 rounded-2xl p-6 shadow-xl
+                    className='backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-2xl p-6 shadow-xl
                              hover:shadow-2xl hover:scale-[1.02] transition-all duration-300
                              flex flex-col md:flex-row md:items-center md:justify-between gap-6
                              animate-fade-in-up'
@@ -87,15 +87,15 @@ const Orders = () => {
                             <p className='sm:text-base font-semibold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent'>
                               {item.name}
                             </p>
-                            <div className='flex items-center gap-3 mt-2 text-base text-gray-700 flex-wrap'>
+                            <div className='flex items-center gap-3 mt-2 text-base text-gray-700 dark:text-gray-200 flex-wrap'>
                               <span className='font-bold text-green-600'>{currency}{item.price}</span>
                               <span className='px-3 py-1 bg-blue-50 border-2 border-blue-500/30 rounded-lg'>Qty: {item.quantity}</span>
                               <span className='px-3 py-1 bg-purple-50 border-2 border-purple-500/30 rounded-lg'>Size: {item.size}</span>
                             </div>
-                            <p className='mt-2 text-gray-600'>
+                            <p className='mt-2 text-gray-600 dark:text-gray-300'>
                               <span className='font-medium'>Date:</span> {new Date(item.date).toDateString()}
                             </p>
-                            <p className='mt-1 text-gray-600'>
+                            <p className='mt-1 text-gray-600 dark:text-gray-300'>
                               <span className='font-medium'>Payment:</span> {item.paymentMethod}
                             </p>
                           </div>

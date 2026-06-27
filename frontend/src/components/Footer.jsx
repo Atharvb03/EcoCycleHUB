@@ -14,14 +14,14 @@ const Footer = () => {
               <span style={{ background: 'linear-gradient(to right, #78e08f, #38d996, #00b894)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>HUB</span>
             </span>
           </div>
-          <p className='w-full md:w-2/3 text-gray-600 dark:text-gray-400'>
+          <p className='w-full md:w-2/3 text-gray-600 dark:text-gray-300 dark:text-gray-400 dark:text-gray-500'>
             EcoCycleHub is transforming waste management through innovative recycling solutions. Our platform connects communities with local recycling centers, making it easier than ever to reduce environmental impact. Since our founding, we've helped divert thousands of tons of waste from landfills while building a sustainable future for generations to come.
           </p>
         </div>
 
         <div>
           <p className='text-xl font-medium mb-5 text-gray-900 dark:text-gray-100'>COMPANY</p>
-          <ul className='flex flex-col gap-1 text-gray-600 dark:text-gray-400'>
+          <ul className='flex flex-col gap-1 text-gray-600 dark:text-gray-300 dark:text-gray-400 dark:text-gray-500'>
             <li>Home</li>
             <li>About us</li>
             <li>Delivery</li>
@@ -31,7 +31,7 @@ const Footer = () => {
 
         <div>
           <p className='text-xl font-medium mb-5 text-gray-900 dark:text-gray-100'>GET IN TOUCH</p>
-          <ul className='flex flex-col gap-1 text-gray-600 dark:text-gray-400'>
+          <ul className='flex flex-col gap-1 text-gray-600 dark:text-gray-300 dark:text-gray-400 dark:text-gray-500'>
             <li>8261825587</li>
             <li>rajkadu2700@gmail.com</li>
             <li>8446379837</li>
@@ -42,8 +42,8 @@ const Footer = () => {
       </div>
 
       <div>
-        <hr className='border-gray-200 dark:border-gray-700' />
-        <p className='py-5 text-sm text-center text-gray-600 dark:text-gray-400'>
+        <hr className='border-gray-200 dark:border-gray-700 dark:border-gray-700' />
+        <p className='py-5 text-sm text-center text-gray-600 dark:text-gray-300 dark:text-gray-400 dark:text-gray-500'>
           Copyright 2024@ EcoCycleHub.com - All Right Reserved.
         </p>
       </div>

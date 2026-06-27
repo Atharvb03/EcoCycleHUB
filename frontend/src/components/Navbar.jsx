@@ -25,8 +25,8 @@ const ThemeToggle = ({ isDark, toggleTheme, mobile = false }) => (
     onClick={toggleTheme}
     className={
       mobile
-        ? 'flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors'
-        : 'w-9 h-9 flex items-center justify-center rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors'
+        ? 'flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-700 dark:text-gray-200 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-900 dark:hover:bg-gray-800 transition-colors'
+        : 'w-9 h-9 flex items-center justify-center rounded-xl hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors'
     }
     aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
@@ -38,7 +38,7 @@ const ThemeToggle = ({ isDark, toggleTheme, mobile = false }) => (
       </>
     ) : (
       <>
-        <Moon className='w-5 h-5 text-gray-600 dark:text-gray-300' />
+        <Moon className='w-5 h-5 text-gray-600 dark:text-gray-300 dark:text-gray-300' />
         {mobile && <span>Dark Mode</span>}
       </>
     )}
@@ -81,7 +81,7 @@ const Navbar = () => {
     `relative text-sm font-medium transition-all duration-200 pb-1 ${
       isActive
         ? 'text-green-600 after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-green-500 after:to-blue-500 after:rounded-full'
-        : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
+        : 'text-gray-600 dark:text-gray-300 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
     }`
 
   const accountLinks = [
@@ -101,7 +101,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className='sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-white/30 dark:border-gray-700/50 shadow-sm transition-colors duration-300'>
+      <nav className='sticky top-0 z-40 bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/80 backdrop-blur-xl border-b border-white/30 dark:border-gray-700/50 shadow-sm transition-colors duration-300'>
         <div className='max-w-7xl mx-auto px-4 flex items-center justify-between h-16'>
           <Link to='/' className='shrink-0 flex items-center gap-1'>
             <img src={assets.logo} className='w-15 h-10 object-contain' alt='EcoCycleHub' />
@@ -120,7 +120,7 @@ const Navbar = () => {
               <button
                 type='button'
                 onClick={() => token ? navigate('/rewards') : navigate('/login')}
-                className='relative text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors pb-1'
+                className='relative text-sm font-medium text-gray-600 dark:text-gray-300 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors pb-1'
               >
                 REWARDS
                 {token && rewardPoints > 0 && (
@@ -150,7 +150,7 @@ const Navbar = () => {
             <button
               type='button'
               onClick={() => navigate('/admin')}
-              className='px-4 py-1 bg-black dark:bg-white text-white dark:text-black rounded-md hover:bg-gray-800 dark:hover:bg-gray-100 transition-all text-sm'
+              className='px-4 py-1 bg-black dark:bg-white text-white dark:text-black rounded-md hover:bg-gray-800 dark:hover:bg-gray-100 dark:bg-gray-800 transition-all text-sm'
             >
               Admin Panel
             </button>
@@ -162,18 +162,18 @@ const Navbar = () => {
             <button
               type='button'
               onClick={() => setSearchOpen((open) => !open)}
-              className='w-9 h-9 flex items-center justify-center rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group'
+              className='w-9 h-9 flex items-center justify-center rounded-xl hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors group'
               aria-label='Search'
               title='Search'
             >
-              <Search className='w-5 h-5 text-gray-500 dark:text-gray-400 group-hover:text-green-600 transition-colors' />
+              <Search className='w-5 h-5 text-gray-500 dark:text-gray-400 dark:text-gray-500 dark:text-gray-400 dark:text-gray-500 group-hover:text-green-600 transition-colors' />
             </button>
 
             <div className='group relative'>
               <button
                 type='button'
                 onClick={() => !token && navigate('/login')}
-                className='w-9 h-9 flex items-center justify-center rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group/btn'
+                className='w-9 h-9 flex items-center justify-center rounded-xl hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors group/btn'
                 aria-label='Profile'
                 title='Profile'
               >
@@ -182,13 +182,13 @@ const Navbar = () => {
                     <User className='w-4 h-4' />
                   </div>
                 ) : (
-                  <User className='w-5 h-5 text-gray-500 dark:text-gray-400 group-hover/btn:text-green-600 transition-colors' />
+                  <User className='w-5 h-5 text-gray-500 dark:text-gray-400 dark:text-gray-500 dark:text-gray-400 dark:text-gray-500 group-hover/btn:text-green-600 transition-colors' />
                 )}
               </button>
 
               {token && (
                 <div className='group-hover:block hidden absolute right-0 top-full pt-2 z-50 min-w-[200px]'>
-                  <div className='bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border border-gray-100 dark:border-gray-700 rounded-2xl shadow-2xl overflow-hidden'>
+                  <div className='bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border border-gray-100 dark:border-gray-800 dark:border-gray-700 rounded-2xl shadow-2xl overflow-hidden'>
                     <div className='bg-gradient-to-r from-green-500 to-blue-600 px-4 py-3'>
                       <p className='text-white font-semibold text-sm'>My Account</p>
                       {rewardPoints > 0 && (
@@ -201,13 +201,13 @@ const Navbar = () => {
                           key={path}
                           type='button'
                           onClick={() => navigate(path)}
-                          className='w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 dark:text-gray-200 hover:bg-green-50 dark:hover:bg-green-900/30 hover:text-green-700 dark:hover:text-green-400 transition-colors text-left'
+                          className='w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 dark:text-gray-200 dark:text-gray-200 hover:bg-green-50 dark:hover:bg-green-900/20 dark:hover:bg-green-900/30 hover:text-green-700 dark:hover:text-green-400 transition-colors text-left'
                         >
                           <Icon className='w-4 h-4' />
                           <span>{label}</span>
                         </button>
                       ))}
-                      <div className='border-t border-gray-100 dark:border-gray-700 mt-1 pt-1'>
+                      <div className='border-t border-gray-100 dark:border-gray-800 dark:border-gray-700 mt-1 pt-1'>
                         <button
                           type='button'
                           onClick={logout}
@@ -223,8 +223,8 @@ const Navbar = () => {
               )}
             </div>
 
-            <Link to='/cart' className='relative w-9 h-9 flex items-center justify-center rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group' aria-label='Cart' title='Cart'>
-              <ShoppingCart className='w-5 h-5 text-gray-500 dark:text-gray-400 group-hover:text-green-600 transition-colors' />
+            <Link to='/cart' className='relative w-9 h-9 flex items-center justify-center rounded-xl hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors group' aria-label='Cart' title='Cart'>
+              <ShoppingCart className='w-5 h-5 text-gray-500 dark:text-gray-400 dark:text-gray-500 dark:text-gray-400 dark:text-gray-500 group-hover:text-green-600 transition-colors' />
               {getCartCount() > 0 && (
                 <span className='absolute -top-0.5 -right-0.5 w-4 h-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white text-[9px] font-bold rounded-full flex items-center justify-center shadow-sm'>
                   {getCartCount()}
@@ -235,27 +235,27 @@ const Navbar = () => {
             <button
               type='button'
               onClick={() => setVisible(true)}
-              className='w-9 h-9 flex items-center justify-center rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors lg:hidden'
+              className='w-9 h-9 flex items-center justify-center rounded-xl hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors lg:hidden'
               aria-label='Open menu'
             >
-              <Menu className='w-5 h-5 text-gray-600 dark:text-gray-300' />
+              <Menu className='w-5 h-5 text-gray-600 dark:text-gray-300 dark:text-gray-300' />
             </button>
           </div>
         </div>
 
-        <div className={`overflow-hidden transition-all duration-300 ${searchOpen ? 'max-h-20 border-t border-gray-100 dark:border-gray-700' : 'max-h-0'}`}>
+        <div className={`overflow-hidden transition-all duration-300 ${searchOpen ? 'max-h-20 border-t border-gray-100 dark:border-gray-800 dark:border-gray-700' : 'max-h-0'}`}>
           <form onSubmit={handleSearch} className='max-w-2xl mx-auto px-4 py-3'>
-            <div className='flex items-center gap-2 bg-gray-50 dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-600 focus-within:border-green-400 rounded-xl px-4 py-2 transition-all'>
-              <Search className='w-4 h-4 text-gray-400 shrink-0' />
+            <div className='flex items-center gap-2 bg-gray-50 dark:bg-gray-900 dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 dark:border-gray-600 focus-within:border-green-400 rounded-xl px-4 py-2 transition-all'>
+              <Search className='w-4 h-4 text-gray-400 dark:text-gray-500 shrink-0' />
               <input
                 autoFocus
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder='Search products...'
-                className='flex-1 bg-transparent text-sm outline-none text-gray-700 dark:text-gray-200 placeholder-gray-400'
+                className='flex-1 bg-transparent text-sm outline-none text-gray-700 dark:text-gray-200 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500'
               />
               {searchQuery && (
-                <button type='button' onClick={() => setSearchQuery('')} className='text-gray-400 hover:text-gray-600 dark:hover:text-gray-200' aria-label='Clear search'>
+                <button type='button' onClick={() => setSearchQuery('')} className='text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-200' aria-label='Clear search'>
                   <X className='w-4 h-4' />
                 </button>
               )}
@@ -284,7 +284,7 @@ const Navbar = () => {
             <button
               type='button'
               onClick={() => setVisible(false)}
-              className='w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400'
+              className='w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 dark:text-gray-500 dark:text-gray-400 dark:text-gray-500'
               aria-label='Close menu'
             >
               <X className='w-5 h-5' />
@@ -296,15 +296,15 @@ const Navbar = () => {
                 key={item.to}
                 to={item.to}
                 onClick={() => setVisible(false)}
-                className={({ isActive }) => `px-4 py-3 rounded-xl text-sm font-medium transition-colors ${isActive ? 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400' : 'text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800'}`}
+                className={({ isActive }) => `px-4 py-3 rounded-xl text-sm font-medium transition-colors ${isActive ? 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400' : 'text-gray-700 dark:text-gray-200 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-900 dark:hover:bg-gray-800'}`}
               >
                 {item.label}
               </NavLink>
             ))}
 
-            <div className='border-t border-gray-100 dark:border-gray-700 my-2' />
+            <div className='border-t border-gray-100 dark:border-gray-800 dark:border-gray-700 my-2' />
             <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} mobile />
-            <div className='border-t border-gray-100 dark:border-gray-700 my-2' />
+            <div className='border-t border-gray-100 dark:border-gray-800 dark:border-gray-700 my-2' />
 
             <button
               type='button'
@@ -325,7 +325,7 @@ const Navbar = () => {
             <button
               type='button'
               onClick={() => { setVisible(false); navigate('/admin') }}
-              className='flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-left'
+              className='flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-200 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-left'
             >
               <Building2 className='w-4 h-4' />
               Admin Panel
@@ -333,7 +333,7 @@ const Navbar = () => {
 
             {token && (
               <>
-                <div className='border-t border-gray-100 dark:border-gray-700 my-2' />
+                <div className='border-t border-gray-100 dark:border-gray-800 dark:border-gray-700 my-2' />
                 <button
                   type='button'
                   onClick={() => { setVisible(false); logout() }}

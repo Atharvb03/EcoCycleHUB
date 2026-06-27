@@ -26,7 +26,7 @@ const Collection = () => {
   },[products, search, showSearch])
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 pt-10'>
+    <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950 pt-10'>
       {/* Animated Background Circles */}
       <div className="fixed top-0 left-0 w-96 h-96 bg-green-400/10 rounded-full blur-3xl animate-pulse pointer-events-none" />
       <div className="fixed bottom-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
@@ -35,7 +35,7 @@ const Collection = () => {
         <div className='flex justify-between items-center text-base sm:text-2xl mb-8 animate-fade-in-up'>
           <Title text1={'ALL'} text2={'COLLECTIONS'} />
           {filterProducts.length > 0 && (
-            <div className='text-sm text-gray-600 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg'>
+            <div className='text-sm text-gray-600 dark:text-gray-300 bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg'>
               {filterProducts.length} Products
             </div>
           )}
@@ -55,8 +55,8 @@ const Collection = () => {
         {filterProducts.length === 0 && (
           <div className='text-center py-20 animate-fade-in-up'>
             <div className='text-6xl mb-4'>🔍</div>
-            <p className='text-xl text-gray-600'>No products found</p>
-            <p className='text-sm text-gray-500 mt-2'>Try adjusting your search</p>
+            <p className='text-xl text-gray-600 dark:text-gray-300'>No products found</p>
+            <p className='text-sm text-gray-500 dark:text-gray-400 dark:text-gray-500 mt-2'>Try adjusting your search</p>
           </div>
         )}
       </div>

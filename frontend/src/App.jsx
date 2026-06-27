@@ -1,5 +1,6 @@
 import React from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
+import { Moon, Sun } from 'lucide-react'
 import { useTheme } from './context/ThemeContext'
 
 // Main frontend pages & components
@@ -34,7 +35,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 const App = () => {
   const location = useLocation()
-  const { isDark } = useTheme()
+  const { isDark, toggleTheme } = useTheme()
   const isAdminRoute = location.pathname.startsWith('/admin')
   const isSellerRoute = location.pathname.startsWith('/seller')
   const isBuyerRoute = location.pathname.startsWith('/buyer')
@@ -46,6 +47,17 @@ const App = () => {
 
       {!isPortalRoute && <Navbar />}
       {!isPortalRoute && <SearchBar />}
+      {isPortalRoute && (
+        <button
+          type='button'
+          onClick={toggleTheme}
+          className='fixed top-4 right-4 z-50 w-11 h-11 rounded-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center text-gray-700 dark:text-gray-100 hover:scale-105 transition-all'
+          aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+          title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+        >
+          {isDark ? <Sun className='w-5 h-5 text-yellow-400' /> : <Moon className='w-5 h-5' />}
+        </button>
+      )}
 
       <Routes>
         {/* User-facing frontend routes */}

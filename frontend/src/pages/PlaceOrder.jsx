@@ -143,7 +143,7 @@ const onSubmitHandler = async (event) => {
 }
 
     return (
-        <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 relative overflow-hidden'>
+        <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950 relative overflow-hidden'>
             {/* Animated Background Circles */}
             <div className="absolute top-20 left-10 w-64 h-64 bg-green-400/20 rounded-full blur-3xl animate-pulse" />
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
@@ -156,14 +156,14 @@ const onSubmitHandler = async (event) => {
                     <Title text1={'DELIVERY'} text2={'INFORMATION'} />
                 </div>
 
-                <div className='backdrop-blur-xl bg-white/80 border border-white/20 rounded-2xl p-6 shadow-xl space-y-4'>
+                <div className='backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-2xl p-6 shadow-xl space-y-4'>
                     <div className='flex gap-3'>
                         <input 
                             required 
                             onChange={onChangeHandler} 
                             name='firstName' 
                             value={formData.firstName} 
-                            className='border-2 border-gray-300 rounded-xl py-3 px-4 w-full focus:border-green-500 focus:outline-none transition-all' 
+                            className='border-2 border-gray-300 dark:border-gray-700 rounded-xl py-3 px-4 w-full focus:border-green-500 focus:outline-none transition-all' 
                             type="text" 
                             placeholder='First name' 
                         />
@@ -172,7 +172,7 @@ const onSubmitHandler = async (event) => {
                             onChange={onChangeHandler} 
                             name='lastName' 
                             value={formData.lastName} 
-                            className='border-2 border-gray-300 rounded-xl py-3 px-4 w-full focus:border-green-500 focus:outline-none transition-all' 
+                            className='border-2 border-gray-300 dark:border-gray-700 rounded-xl py-3 px-4 w-full focus:border-green-500 focus:outline-none transition-all' 
                             type="text" 
                             placeholder='Last name' 
                         />
@@ -183,7 +183,7 @@ const onSubmitHandler = async (event) => {
                         onChange={onChangeHandler} 
                         name='email' 
                         value={formData.email} 
-                        className='border-2 border-gray-300 rounded-xl py-3 px-4 w-full focus:border-green-500 focus:outline-none transition-all' 
+                        className='border-2 border-gray-300 dark:border-gray-700 rounded-xl py-3 px-4 w-full focus:border-green-500 focus:outline-none transition-all' 
                         type="email" 
                         placeholder='Email address' 
                     />
@@ -192,7 +192,7 @@ const onSubmitHandler = async (event) => {
                         onChange={onChangeHandler} 
                         name='street' 
                         value={formData.street} 
-                        className='border-2 border-gray-300 rounded-xl py-3 px-4 w-full focus:border-green-500 focus:outline-none transition-all' 
+                        className='border-2 border-gray-300 dark:border-gray-700 rounded-xl py-3 px-4 w-full focus:border-green-500 focus:outline-none transition-all' 
                         type="text" 
                         placeholder='Street' 
                     />
@@ -203,7 +203,7 @@ const onSubmitHandler = async (event) => {
                             onChange={onChangeHandler} 
                             name='city' 
                             value={formData.city} 
-                            className='border-2 border-gray-300 rounded-xl py-3 px-4 w-full focus:border-green-500 focus:outline-none transition-all' 
+                            className='border-2 border-gray-300 dark:border-gray-700 rounded-xl py-3 px-4 w-full focus:border-green-500 focus:outline-none transition-all' 
                             type="text" 
                             placeholder='City' 
                         />
@@ -211,7 +211,7 @@ const onSubmitHandler = async (event) => {
                             onChange={onChangeHandler} 
                             name='state' 
                             value={formData.state} 
-                            className='border-2 border-gray-300 rounded-xl py-3 px-4 w-full focus:border-green-500 focus:outline-none transition-all' 
+                            className='border-2 border-gray-300 dark:border-gray-700 rounded-xl py-3 px-4 w-full focus:border-green-500 focus:outline-none transition-all' 
                             type="text" 
                             placeholder='State' 
                         />
@@ -223,7 +223,7 @@ const onSubmitHandler = async (event) => {
                             onChange={onChangeHandler} 
                             name='zipcode' 
                             value={formData.zipcode} 
-                            className='border-2 border-gray-300 rounded-xl py-3 px-4 w-full focus:border-green-500 focus:outline-none transition-all' 
+                            className='border-2 border-gray-300 dark:border-gray-700 rounded-xl py-3 px-4 w-full focus:border-green-500 focus:outline-none transition-all' 
                             type="number" 
                             placeholder='Zipcode' 
                         />
@@ -232,7 +232,7 @@ const onSubmitHandler = async (event) => {
                             onChange={onChangeHandler} 
                             name='country' 
                             value={formData.country} 
-                            className='border-2 border-gray-300 rounded-xl py-3 px-4 w-full focus:border-green-500 focus:outline-none transition-all' 
+                            className='border-2 border-gray-300 dark:border-gray-700 rounded-xl py-3 px-4 w-full focus:border-green-500 focus:outline-none transition-all' 
                             type="text" 
                             placeholder='Country' 
                         />
@@ -243,7 +243,7 @@ const onSubmitHandler = async (event) => {
                         onChange={onChangeHandler} 
                         name='phone' 
                         value={formData.phone} 
-                        className='border-2 border-gray-300 rounded-xl py-3 px-4 w-full focus:border-green-500 focus:outline-none transition-all' 
+                        className='border-2 border-gray-300 dark:border-gray-700 rounded-xl py-3 px-4 w-full focus:border-green-500 focus:outline-none transition-all' 
                         type="number" 
                         placeholder='Phone' 
                     />
@@ -252,11 +252,11 @@ const onSubmitHandler = async (event) => {
 
             {/* Right Side - Payment Info */}
             <div className='mt-8 animate-fade-in-up' style={{ animationDelay: '0.1s' }}>
-                <div className='mt-8 min-w-80 backdrop-blur-xl bg-white/80 border border-white/20 rounded-2xl p-6 shadow-xl'>
+                <div className='mt-8 min-w-80 backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-2xl p-6 shadow-xl'>
                     <CartTotal />
                 </div>
 
-                <div className='mt-8 backdrop-blur-xl bg-white/80 border border-white/20 rounded-2xl p-6 shadow-xl'>
+                <div className='mt-8 backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-2xl p-6 shadow-xl'>
                     <div className='mb-6'>
                         <Title text1={'PAYMENT'} text2={'METHOD'} />
                     </div>
@@ -293,7 +293,7 @@ const onSubmitHandler = async (event) => {
                                           ${method === 'cod' ? 'border-green-500' : 'border-gray-400'}`}>
                                 {method === 'cod' && <div className='w-3 h-3 bg-green-500 rounded-full animate-scale-in' />}
                             </div>
-                            <p className='text-gray-700 text-sm font-semibold mx-2'>💵 CASH ON DELIVERY</p>
+                            <p className='text-gray-700 dark:text-gray-200 text-sm font-semibold mx-2'>💵 CASH ON DELIVERY</p>
                         </div>
                     </div>
 
