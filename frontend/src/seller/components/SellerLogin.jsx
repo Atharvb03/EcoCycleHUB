@@ -17,13 +17,13 @@ const COUNTRIES = [
 ];
 
 const Field = ({ icon, children }) => (
-  <div className="flex items-center gap-2 border border-gray-200 rounded-xl px-4 py-2 bg-white focus-within:ring-2 focus-within:ring-green-400 transition">
+  <div className="flex items-center gap-2 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2 bg-white dark:bg-gray-900 focus-within:ring-2 focus-within:ring-green-400 transition">
     <span className="text-lg">{icon}</span>
     {children}
   </div>
 );
 
-const inputCls = "w-full focus:outline-none text-gray-700 bg-transparent text-sm";
+const inputCls = "w-full focus:outline-none text-gray-700 dark:text-gray-100 bg-transparent text-sm";
 
 const STEPS = ['Info', 'OTP', 'Photo', 'ID', 'Done'];
 
@@ -32,12 +32,12 @@ const StepBar = ({ current }) => (
     {STEPS.map((s, i) => (
       <div key={s} className="flex items-center gap-1">
         <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-all
-          ${i < current ? 'bg-green-500 text-white' : i === current
+          ${i < current ? 'bg-green-50 dark:bg-green-900/40 text-white' : i === current
             ? 'bg-gradient-to-r from-green-500 to-blue-500 text-white scale-110'
-            : 'bg-gray-200 text-gray-400'}`}>
+            : 'bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-100'}`}>
           {i < current ? '✓' : i + 1}
         </div>
-        {i < STEPS.length - 1 && <div className={`w-6 h-0.5 ${i < current ? 'bg-green-400' : 'bg-gray-200'}`} />}
+        {i < STEPS.length - 1 && <div className={`w-6 h-0.5 ${i < current ? 'bg-green-400' : 'bg-gray-200 dark:bg-gray-700'}`} />}
       </div>
     ))}
   </div>
@@ -158,13 +158,13 @@ function SellerLogin({ setToken }) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center w-full bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 relative overflow-hidden py-10">
+    <div className="min-h-screen flex items-center justify-center w-full bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950 relative overflow-hidden py-10">
       <div className="fixed top-0 left-0 w-96 h-96 bg-green-400/20 rounded-full blur-3xl animate-pulse pointer-events-none" />
       <div className="fixed bottom-0 right-0 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
 
-      <div className="relative z-10 bg-white/80 backdrop-blur-sm shadow-2xl rounded-3xl px-8 py-8 w-full max-w-md border border-green-100">
+      <div className="relative z-10 bg-white/80 dark:bg-gray-900/85 backdrop-blur-sm shadow-2xl rounded-3xl px-8 py-8 w-full max-w-md border border-green-100 dark:border-emerald-900/60">
         {/* Back to homepage */}
-        <a href="/" className="flex items-center gap-1 text-xs text-gray-400 hover:text-green-600 transition mb-4">
+        <a href="/" className="flex items-center gap-1 text-xs text-gray-400 dark:text-gray-100 hover:text-green-600 transition mb-4">
           ← Back to Homepage
         </a>
 
@@ -173,19 +173,19 @@ function SellerLogin({ setToken }) {
           <h1 className="text-2xl font-bold bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
             {mode === 'login' ? 'Seller Login' : 'Become a Seller'}
           </h1>
-          <p className="text-gray-400 text-xs mt-1">EcoCycleHub · Sell your recyclables</p>
+          <p className="text-gray-400 dark:text-gray-100 text-xs mt-1">EcoCycleHub · Sell your recyclables</p>
         </div>
 
         {/* Single toggle button */}
         <div className="flex justify-center mb-6">
           {mode === 'login' ? (
             <button onClick={() => { setMode('signup'); setStep(0); }}
-              className="px-6 py-2 text-sm font-medium border-2 border-blue-400 text-blue-600 rounded-xl hover:bg-blue-50 transition-all">
+              className="px-6 py-2 text-sm font-medium border-2 border-blue-400 text-blue-600 rounded-xl hover:bg-blue-50 dark:bg-blue-900/20 transition-all">
               + Register New Seller
             </button>
           ) : (
             <button onClick={() => { setMode('login'); setStep(0); }}
-              className="px-6 py-2 text-sm font-medium border-2 border-green-400 text-green-600 rounded-xl hover:bg-green-50 transition-all">
+              className="px-6 py-2 text-sm font-medium border-2 border-green-400 text-green-600 rounded-xl hover:bg-green-50 dark:bg-green-900/20 transition-all">
               ← Back to Login
             </button>
           )}
@@ -212,28 +212,28 @@ function SellerLogin({ setToken }) {
                 <Field icon="✉️"><input type="email" placeholder="Email Address" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} className={inputCls} required /></Field>
                 <Field icon="🔒"><input type="password" placeholder="Password (min 8 chars)" value={form.password} onChange={e => setForm({ ...form, password: e.target.value })} className={inputCls} required /></Field>
                 <Field icon="📍"><input type="text" placeholder="Location (City, State)" value={form.location} onChange={e => setForm({ ...form, location: e.target.value })} className={inputCls} required /></Field>
-                <div className="flex items-center border border-gray-200 rounded-xl bg-white focus-within:ring-2 focus-within:ring-green-400 transition relative">
+                <div className="flex items-center border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-900 focus-within:ring-2 focus-within:ring-green-400 transition relative">
                   <button type="button" onClick={() => setShowCountryList(v => !v)}
-                    className="flex items-center gap-1 px-3 py-2 border-r border-gray-200 text-sm font-medium hover:bg-gray-50 shrink-0">
+                    className="flex items-center gap-1 px-3 py-2 border-r border-gray-200 dark:border-gray-700 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-800 shrink-0">
                     <span className="text-xl">{COUNTRIES.find(c => c.code === countryCode)?.flag}</span>
-                    <span className="text-gray-600">{countryCode}</span>
-                    <span className="text-gray-400 text-xs">▾</span>
+                    <span className="text-gray-600 dark:text-gray-100">{countryCode}</span>
+                    <span className="text-gray-400 dark:text-gray-100 text-xs">▾</span>
                   </button>
                   {showCountryList && (
-                    <div className="absolute top-full left-0 mt-1 w-56 bg-white border border-gray-200 rounded-xl shadow-xl z-50 max-h-48 overflow-y-auto">
+                    <div className="absolute top-full left-0 mt-1 w-56 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl z-50 max-h-48 overflow-y-auto">
                       {COUNTRIES.map(c => (
                         <button key={c.code} type="button" onClick={() => { setCountryCode(c.code); setShowCountryList(false); }}
-                          className="flex items-center gap-3 w-full px-4 py-2 text-sm hover:bg-green-50 text-left">
+                          className="flex items-center gap-3 w-full px-4 py-2 text-sm hover:bg-green-50 dark:bg-green-900/20 text-left">
                           <span className="text-xl">{c.flag}</span>
-                          <span className="text-gray-700">{c.name}</span>
-                          <span className="text-gray-400 ml-auto">{c.code}</span>
+                          <span className="text-gray-700 dark:text-gray-100">{c.name}</span>
+                          <span className="text-gray-400 dark:text-gray-100 ml-auto">{c.code}</span>
                         </button>
                       ))}
                     </div>
                   )}
                   <input type="tel" placeholder="10-digit Mobile Number" value={form.mobile}
                     onChange={e => setForm({ ...form, mobile: e.target.value.replace(/\D/g, '').slice(0, 10) })}
-                    className="flex-1 py-2 pr-3 focus:outline-none text-gray-700 bg-transparent text-sm" required />
+                    className="flex-1 py-2 pr-3 focus:outline-none text-gray-700 dark:text-gray-100 bg-transparent text-sm" required />
                 </div>
                 <button type="submit" disabled={loading}
                   className="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl hover:scale-105 transition-all shadow-lg disabled:opacity-60">
@@ -244,7 +244,7 @@ function SellerLogin({ setToken }) {
 
             {step === 1 && (
               <form onSubmit={handleVerifyOTP} className="space-y-4">
-                <p className="text-center text-sm text-gray-500">OTP sent to <span className="font-semibold text-gray-700">{countryCode} {form.mobile}</span></p>
+                <p className="text-center text-sm text-gray-500 dark:text-gray-100">OTP sent to <span className="font-semibold text-gray-700 dark:text-gray-100">{countryCode} {form.mobile}</span></p>
                 <Field icon="🔢">
                   <input type="text" placeholder="6-digit OTP" maxLength={6} value={otp}
                     onChange={e => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
@@ -260,10 +260,10 @@ function SellerLogin({ setToken }) {
 
             {step === 2 && (
               <form onSubmit={handlePhotoUpload} className="space-y-4">
-                <p className="text-center text-sm text-gray-500">Upload your profile photo</p>
-                <label className="flex flex-col items-center justify-center border-2 border-dashed border-green-300 rounded-2xl p-6 cursor-pointer hover:border-green-500 transition-all bg-green-50/50">
+                <p className="text-center text-sm text-gray-500 dark:text-gray-100">Upload your profile photo</p>
+                <label className="flex flex-col items-center justify-center border-2 border-dashed border-green-300 rounded-2xl p-6 cursor-pointer hover:border-green-500 transition-all bg-green-50 dark:bg-green-900/30">
                   {photoPreview ? <img src={photoPreview} alt="preview" className="w-24 h-24 rounded-full object-cover mb-2 shadow-lg" /> : <div className="text-5xl mb-2">🤳</div>}
-                  <span className="text-sm text-gray-500">{photoFile ? photoFile.name : 'Click to select photo'}</span>
+                  <span className="text-sm text-gray-500 dark:text-gray-100">{photoFile ? photoFile.name : 'Click to select photo'}</span>
                   <input type="file" accept="image/*" className="hidden" onChange={e => { setPhotoFile(e.target.files[0]); setPhotoPreview(URL.createObjectURL(e.target.files[0])); }} />
                 </label>
                 <button type="submit" disabled={loading}
@@ -275,7 +275,7 @@ function SellerLogin({ setToken }) {
 
             {step === 3 && (
               <form onSubmit={handleAadhaarUpload} className="space-y-4">
-                <p className="text-center text-sm text-gray-500">Enter your Aadhaar number and upload the card photo</p>
+                <p className="text-center text-sm text-gray-500 dark:text-gray-100">Enter your Aadhaar number and upload the card photo</p>
                 <div>
                   <Field icon="🪪">
                     <input type="text" placeholder="1234 5678 9012" maxLength={14} value={aadhaarNumber}
@@ -286,10 +286,10 @@ function SellerLogin({ setToken }) {
                     <p className="text-xs text-green-600 mt-1 ml-1">✓ Will be stored as: XXXX XXXX {aadhaarNumber.replace(/\s/g, '').slice(8)}</p>
                   )}
                 </div>
-                <label className="flex flex-col items-center justify-center border-2 border-dashed border-blue-300 rounded-2xl p-6 cursor-pointer hover:border-blue-500 transition-all bg-blue-50/50">
+                <label className="flex flex-col items-center justify-center border-2 border-dashed border-blue-300 rounded-2xl p-6 cursor-pointer hover:border-blue-500 transition-all bg-blue-50 dark:bg-blue-900/30">
                   <div className="text-5xl mb-2">{aadhaarFile ? '📄' : '🪪'}</div>
-                  <span className="text-sm text-gray-500">{aadhaarName || 'Upload Aadhaar card photo (front)'}</span>
-                  <span className="text-xs text-gray-400 mt-1">JPG, PNG or PDF · max 5MB</span>
+                  <span className="text-sm text-gray-500 dark:text-gray-100">{aadhaarName || 'Upload Aadhaar card photo (front)'}</span>
+                  <span className="text-xs text-gray-400 dark:text-gray-100 mt-1">JPG, PNG or PDF · max 5MB</span>
                   <input type="file" accept="image/*,.pdf" className="hidden" onChange={e => { setAadhaarFile(e.target.files[0]); setAadhaarName(e.target.files[0].name); }} />
                 </label>
                 <button type="submit" disabled={loading}
@@ -303,8 +303,8 @@ function SellerLogin({ setToken }) {
               <div className="text-center space-y-3 py-4">
                 <div className="text-6xl">⏳</div>
                 <h2 className="text-xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Documents Submitted!</h2>
-                <p className="text-gray-500 text-sm">Your Aadhaar / ID is under review by our team.</p>
-                <p className="text-gray-400 text-xs">You'll be able to log in once approved. This usually takes 24–48 hours.</p>
+                <p className="text-gray-500 dark:text-gray-100 text-sm">Your Aadhaar / ID is under review by our team.</p>
+                <p className="text-gray-400 dark:text-gray-100 text-xs">You'll be able to log in once approved. This usually takes 24–48 hours.</p>
                 <button onClick={() => { setMode('login'); setStep(0); }}
                   className="mt-4 w-full py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-semibold rounded-xl hover:scale-105 transition-all">
                   Go to Login

@@ -6,12 +6,12 @@ const Sidebar = () => {
     `flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 ${
       isActive
         ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg shadow-green-500/30'
-        : 'text-gray-600 hover:bg-white/80 hover:text-gray-900 hover:shadow-md'
+        : 'text-gray-600 dark:text-gray-100 hover:bg-white/80 dark:hover:bg-gray-800 dark:bg-gray-900/85 hover:text-gray-900 dark:hover:text-white dark:text-gray-100 hover:shadow-md'
     }`
 
   return (
-    <div className='w-[220px] min-h-screen border-r border-white/30 bg-white/40 backdrop-blur-sm pt-8 px-4'>
-      <p className='text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 px-2'>Admin Panel</p>
+    <div className='w-[220px] min-h-screen border-r border-white/30 dark:border-gray-700/60 bg-white/40 dark:bg-gray-900/70 backdrop-blur-sm pt-8 px-4'>
+      <p className='text-xs font-bold text-gray-400 dark:text-gray-100 uppercase tracking-widest mb-4 px-2'>Admin Panel</p>
       <div className='flex flex-col gap-2'>
 
         <NavLink className={linkClass} to="list">

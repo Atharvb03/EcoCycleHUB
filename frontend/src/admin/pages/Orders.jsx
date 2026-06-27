@@ -46,9 +46,9 @@ const Orders = ({ token, isSeller = false }) => {
 
   const statusColor = (s) => {
     if (s === 'Delivered') return 'bg-green-100 text-green-700 border-green-300'
-    if (s === 'Shipped' || s === 'Out for delivery') return 'bg-blue-100 text-blue-700 border-blue-300'
+    if (s === 'Shipped' || s === 'Out for delivery') return 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 border-blue-300'
     if (s === 'Packing') return 'bg-yellow-100 text-yellow-700 border-yellow-300'
-    return 'bg-gray-100 text-gray-600 border-gray-300'
+    return 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-100 border-gray-300 dark:border-gray-700'
   }
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const Orders = ({ token, isSeller = false }) => {
   }, [token])
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 p-6 relative overflow-hidden'>
+    <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950 p-6 relative overflow-hidden'>
       {/* Animated Background Circles */}
       <div className="absolute top-20 right-10 w-64 h-64 bg-purple-400/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-green-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
@@ -68,17 +68,17 @@ const Orders = ({ token, isSeller = false }) => {
 
         {/* Status Filter */}
         <div className='flex flex-wrap items-center gap-3 mb-6 animate-fade-in-up' style={{ animationDelay: '0.1s' }}>
-          <span className='text-sm font-semibold text-gray-600'>Filter by status:</span>
+          <span className='text-sm font-semibold text-gray-600 dark:text-gray-100'>Filter by status:</span>
           <select
             value={statusFilter}
             onChange={e => setStatusFilter(e.target.value)}
-            className='px-4 py-2 font-semibold border-2 border-gray-300 rounded-xl focus:border-green-500 focus:outline-none transition-all bg-white shadow-sm'
+            className='px-4 py-2 font-semibold border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-green-500 focus:outline-none transition-all bg-white dark:bg-gray-900 shadow-sm'
           >
             {statuses.map(s => (
               <option key={s} value={s}>{s}</option>
             ))}
           </select>
-          <span className='text-sm text-gray-400'>{filteredOrders.length} order{filteredOrders.length !== 1 ? 's' : ''}</span>
+          <span className='text-sm text-gray-400 dark:text-gray-100'>{filteredOrders.length} order{filteredOrders.length !== 1 ? 's' : ''}</span>
         </div>
 
         <div className='space-y-4'>
@@ -86,7 +86,7 @@ const Orders = ({ token, isSeller = false }) => {
             filteredOrders.map((order, index) => (
               <div 
                 key={index} 
-                className='backdrop-blur-xl bg-white/80 border border-white/20 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-[1.01] transition-all duration-300
+                className='backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-[1.01] transition-all duration-300
                          grid grid-cols-1 sm:grid-cols-[0.5fr_2fr_1fr] lg:grid-cols-[0.5fr_2fr_1fr_1fr_1fr] gap-4 items-start p-6
                          animate-fade-in-up'
                 style={{ animationDelay: `${index * 0.05}s` }}
@@ -101,18 +101,18 @@ const Orders = ({ token, isSeller = false }) => {
                   <div className='mb-3'>
                     {order.items.map((item, index) => {
                       if (index === order.items.length - 1) {
-                        return <p className='py-0.5 text-gray-700' key={index}> {item.name} x {item.quantity} <span className='px-2 py-0.5 bg-blue-50 border border-blue-500/30 rounded text-xs'> {item.size} </span> </p>
+                        return <p className='py-0.5 text-gray-700 dark:text-gray-100' key={index}> {item.name} x {item.quantity} <span className='px-2 py-0.5 bg-blue-50 dark:bg-blue-900/20 border border-blue-500/30 rounded text-xs'> {item.size} </span> </p>
                       } else {
-                        return <p className='py-0.5 text-gray-700' key={index}> {item.name} x {item.quantity} <span className='px-2 py-0.5 bg-blue-50 border border-blue-500/30 rounded text-xs'> {item.size} </span> ,</p>
+                        return <p className='py-0.5 text-gray-700 dark:text-gray-100' key={index}> {item.name} x {item.quantity} <span className='px-2 py-0.5 bg-blue-50 dark:bg-blue-900/20 border border-blue-500/30 rounded text-xs'> {item.size} </span> ,</p>
                       }
                     })}
                   </div>
-                  <p className='mt-3 mb-2 font-semibold text-gray-800'>{order.address.firstName + " " + order.address.lastName}</p>
-                  <div className='text-sm text-gray-600'>
+                  <p className='mt-3 mb-2 font-semibold text-gray-800 dark:text-gray-100'>{order.address.firstName + " " + order.address.lastName}</p>
+                  <div className='text-sm text-gray-600 dark:text-gray-100'>
                     <p>{order.address.street + ","}</p>
                     <p>{order.address.city + ", " + order.address.state + ", " + order.address.country + ", " + order.address.zipcode}</p>
                   </div>
-                  <p className='mt-2 text-sm text-gray-600'>📞 {order.address.phone}</p>
+                  <p className='mt-2 text-sm text-gray-600 dark:text-gray-100'>📞 {order.address.phone}</p>
                 </div>
                 
                 <div className='text-sm'>
@@ -137,7 +137,7 @@ const Orders = ({ token, isSeller = false }) => {
                   <select
                     onChange={e => statusHandler(e.target.value, order._id)}
                     value={order.status}
-                    className='p-2 text-sm font-semibold border-2 border-gray-300 rounded-xl focus:border-green-500 focus:outline-none transition-all bg-white'
+                    className='p-2 text-sm font-semibold border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-green-500 focus:outline-none transition-all bg-white'
                   >
                     {statuses.filter(s => s !== 'All').map(s => (
                       <option key={s} value={s}>{s}</option>
@@ -147,9 +147,9 @@ const Orders = ({ token, isSeller = false }) => {
               </div>
             ))
           ) : (
-            <div className='text-center py-20 backdrop-blur-xl bg-white/80 border border-white/20 rounded-2xl shadow-xl animate-fade-in-up'>
+            <div className='text-center py-20 backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-2xl shadow-xl animate-fade-in-up'>
               <div className='text-6xl mb-4'>📦</div>
-              <p className='text-xl text-gray-600'>No orders found</p>
+              <p className='text-xl text-gray-600 dark:text-gray-100'>No orders found</p>
             </div>
           )}
         </div>

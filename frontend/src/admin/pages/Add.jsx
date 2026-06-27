@@ -7,7 +7,7 @@ import PricePredictor from '../services/pricePredictor'
 
 // Cloud upload icon for electronics slots
 const UploadCloudIcon = () => (
-  <svg className="w-8 h-8 text-gray-400 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg className="w-8 h-8 text-gray-400 dark:text-gray-100 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
   </svg>
 )
@@ -196,7 +196,7 @@ const Add = ({ token, isSeller = false }) => {
 
   // ========== RENDER: MODE CHOICE ==========
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 p-6 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950 p-6 relative overflow-hidden">
       {/* Animated Background Circles */}
       <div className="absolute top-20 left-10 w-64 h-64 bg-green-400/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
@@ -214,7 +214,7 @@ const Add = ({ token, isSeller = false }) => {
             className={`flex-1 py-3 px-4 rounded-xl border-2 text-center font-medium transition-all duration-300 transform hover:scale-105 ${
               addMode === 'clothing' 
                 ? 'border-amber-500 bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/50' 
-                : 'border-gray-200 bg-white hover:border-gray-300'
+                : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:border-gray-300 dark:border-gray-700'
             }`}
           >
             👕 Clothing
@@ -225,7 +225,7 @@ const Add = ({ token, isSeller = false }) => {
             className={`flex-1 py-3 px-4 rounded-xl border-2 text-center font-medium transition-all duration-300 transform hover:scale-105 ${
               addMode === 'electronics' 
                 ? 'border-blue-500 bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/50' 
-                : 'border-gray-200 bg-white hover:border-gray-300'
+                : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:border-gray-300 dark:border-gray-700'
             }`}
           >
             📱 Electronics
@@ -234,7 +234,7 @@ const Add = ({ token, isSeller = false }) => {
 
       {/* ---------- CLOTHING FORM (unchanged layout) ---------- */}
       {addMode === 'clothing' && (
-        <form onSubmit={onSubmitClothing} className="backdrop-blur-xl bg-white/80 border border-white/20 rounded-2xl p-6 shadow-xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+        <form onSubmit={onSubmitClothing} className="backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-2xl p-6 shadow-xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
           <div>
             <p className="mb-2 font-medium">Upload Image</p>
             <div className="flex gap-2">
@@ -243,7 +243,7 @@ const Add = ({ token, isSeller = false }) => {
                 const setImg = [setImage1, setImage2, setImage3, setImage4][i - 1]
                 return (
                   <label key={i} htmlFor={`img${i}`} className="cursor-pointer group">
-                    <img className="w-20 h-20 object-cover border-2 border-gray-300 rounded-xl group-hover:border-green-500 transition-all duration-300 group-hover:scale-105" src={!img ? assets.upload_area : URL.createObjectURL(img)} alt="" />
+                    <img className="w-20 h-20 object-cover border-2 border-gray-300 dark:border-gray-700 rounded-xl group-hover:border-green-500 transition-all duration-300 group-hover:scale-105" src={!img ? assets.upload_area : URL.createObjectURL(img)} alt="" />
                     <input onChange={(e) => setImg(e.target.files[0])} type="file" id={`img${i}`} hidden accept="image/*" />
                   </label>
                 )
@@ -253,17 +253,17 @@ const Add = ({ token, isSeller = false }) => {
 
           <div className="w-full mt-4">
             <p className="mb-2 font-medium">Product name</p>
-            <input value={name} onChange={(e) => setName(e.target.value)} className="w-full max-w-[500px] px-3 py-2 border-2 border-gray-300 rounded-xl focus:border-green-500 focus:outline-none transition-all" type="text" placeholder="e.g. Cotton T-Shirt, Denim Jeans" required />
+            <input value={name} onChange={(e) => setName(e.target.value)} className="w-full max-w-[500px] px-3 py-2 border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-green-500 focus:outline-none transition-all bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100" type="text" placeholder="e.g. Cotton T-Shirt, Denim Jeans" required />
           </div>
           <div className="w-full mt-4">
             <p className="mb-2 font-medium">Product description</p>
-            <textarea value={description} onChange={(e) => setDescription(e.target.value)} className="w-full max-w-[500px] px-3 py-2 border-2 border-gray-300 rounded-xl focus:border-green-500 focus:outline-none transition-all" rows={3} placeholder="Material, color, condition..." required />
+            <textarea value={description} onChange={(e) => setDescription(e.target.value)} className="w-full max-w-[500px] px-3 py-2 border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-green-500 focus:outline-none transition-all bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100" rows={3} placeholder="Material, color, condition..." required />
           </div>
 
           <div className="flex flex-wrap gap-4 mt-4">
             <div>
               <p className="mb-2 font-medium">Product category</p>
-              <select value={category} onChange={(e) => onCategoryChange(e.target.value)} className="px-3 py-2 border-2 border-gray-300 rounded-xl focus:border-green-500 focus:outline-none transition-all">
+              <select value={category} onChange={(e) => onCategoryChange(e.target.value)} className="px-3 py-2 border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-green-500 focus:outline-none transition-all bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
                 <option value="Men">Men</option>
                 <option value="Women">Women</option>
                 <option value="Kids">Kids</option>
@@ -271,14 +271,14 @@ const Add = ({ token, isSeller = false }) => {
             </div>
             <div>
               <p className="mb-2 font-medium">Sub category</p>
-              <select value={subCategory} onChange={(e) => setSubCategory(e.target.value)} className="px-3 py-2 border-2 border-gray-300 rounded-xl focus:border-green-500 focus:outline-none transition-all">
+              <select value={subCategory} onChange={(e) => setSubCategory(e.target.value)} className="px-3 py-2 border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-green-500 focus:outline-none transition-all bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
                 {fashionSubCategories.map((opt) => <option key={opt} value={opt}>{opt}</option>)}
               </select>
             </div>
             <div>
               <p className="mb-2 font-medium">Product Price (₹)</p>
               <div className="flex gap-2 items-center">
-                <input value={price} onChange={(e) => setPrice(e.target.value)} className="w-28 px-3 py-2 border-2 border-gray-300 rounded-xl focus:border-green-500 focus:outline-none transition-all" type="number" placeholder="499" step="0.01" min="0" />
+                <input value={price} onChange={(e) => setPrice(e.target.value)} className="w-28 px-3 py-2 border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-green-500 focus:outline-none transition-all bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100" type="number" placeholder="499" step="0.01" min="0" />
                 <button type="button" onClick={predictPriceHandlerClothing} disabled={isPredicting} className="px-3 py-2 text-sm rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:shadow-lg hover:shadow-blue-500/50 disabled:bg-gray-300 transition-all duration-300 transform hover:-translate-y-1">
                   {isPredicting ? 'Predicting...' : 'Predict Price'}
                 </button>
@@ -287,7 +287,7 @@ const Add = ({ token, isSeller = false }) => {
           </div>
 
           {showPrediction && (
-            <div className={`p-3 rounded-xl max-w-[500px] mt-4 animate-scale-in ${predictedPrice ? 'bg-green-50 border-2 border-green-200' : 'bg-yellow-50 border-2 border-yellow-200'}`}>
+            <div className={`p-3 rounded-xl max-w-[500px] mt-4 animate-scale-in ${predictedPrice ? 'bg-green-50 dark:bg-green-900/20 border-2 border-green-200' : 'bg-yellow-50 border-2 border-yellow-200'}`}>
               <span className="font-semibold">Price Prediction: </span>
               {predictedPrice ? (
                 <span className="text-green-700">₹{parseFloat(predictedPrice).toFixed(2)}</span>
@@ -295,7 +295,7 @@ const Add = ({ token, isSeller = false }) => {
                 <span className="text-yellow-700">Fill details and click Predict Price</span>
               )}
               {predictedPrice && (
-                <button type="button" onClick={usePredictedPrice} className="ml-2 px-2 py-1 bg-green-500 text-white text-sm rounded-lg hover:bg-green-600 transition-all">Use This Price</button>
+                <button type="button" onClick={usePredictedPrice} className="ml-2 px-2 py-1 bg-green-50 dark:bg-green-900/40 text-white text-sm rounded-lg hover:bg-green-600 transition-all">Use This Price</button>
               )}
             </div>
           )}
@@ -305,7 +305,7 @@ const Add = ({ token, isSeller = false }) => {
             <div className="flex gap-2">
               {['S', 'M', 'L', 'XL', 'XXL'].map((s) => (
                 <button key={s} type="button" onClick={() => setSizes(prev => prev.includes(s) ? prev.filter(x => x !== s) : [...prev, s])}
-                  className={`px-3 py-1 border-2 rounded-xl transition-all duration-300 transform hover:scale-110 ${sizes.includes(s) ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white border-pink-500 shadow-lg shadow-pink-500/50' : 'bg-slate-100 border-gray-300 hover:border-pink-300'}`}>{s}</button>
+                  className={`px-3 py-1 border-2 rounded-xl transition-all duration-300 transform hover:scale-110 ${sizes.includes(s) ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white border-pink-500 shadow-lg shadow-pink-500/50' : 'bg-slate-100 dark:bg-slate-800 border-gray-300 dark:border-gray-700 hover:border-pink-300'}`}>{s}</button>
               ))}
             </div>
           </div>
@@ -319,21 +319,21 @@ const Add = ({ token, isSeller = false }) => {
 
       {/* ---------- ELECTRONICS FORM (as per image) ---------- */}
       {addMode === 'electronics' && (
-        <form onSubmit={onSubmitElectronics} className="backdrop-blur-xl bg-white/80 border border-white/20 rounded-2xl p-6 shadow-xl max-w-[500px] animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+        <form onSubmit={onSubmitElectronics} className="backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-2xl p-6 shadow-xl max-w-[500px] animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
           <h2 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">+ Add Electronics</h2>
-          <p className="text-sm text-gray-600 mb-3 font-medium">Upload Images</p>
+          <p className="text-sm text-gray-600 dark:text-gray-100 mb-3 font-medium">Upload Images</p>
           <div className="flex gap-3 mb-4">
             {[1, 2, 3].map((i) => {
               const img = [image1, image2, image3][i - 1]
               const setImg = [setImage1, setImage2, setImage3][i - 1]
               return (
-                <label key={i} htmlFor={`eimg${i}`} className="w-24 h-24 border-2 border-dashed border-gray-300 rounded-xl flex flex-col items-center justify-center cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition-all duration-300 transform hover:scale-105">
+                <label key={i} htmlFor={`eimg${i}`} className="w-24 h-24 border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-xl flex flex-col items-center justify-center cursor-pointer hover:border-blue-400 hover:bg-blue-50 dark:bg-blue-900/20 transition-all duration-300 transform hover:scale-105">
                   {img ? (
                     <img src={URL.createObjectURL(img)} alt="" className="w-full h-full object-cover rounded-xl" />
                   ) : (
                     <>
                       <UploadCloudIcon />
-                      <span className="text-xs text-gray-500">Upload</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-100">Upload</span>
                     </>
                   )}
                   <input type="file" id={`eimg${i}`} hidden accept="image/*" onChange={(e) => setImg(e.target.files[0])} />
@@ -344,20 +344,20 @@ const Add = ({ token, isSeller = false }) => {
 
           <div className="w-full mb-4">
             <p className="mb-1 text-sm font-medium">Product Name</p>
-            <input value={eName} onChange={(e) => setEName(e.target.value)} className="w-full px-3 py-2 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:outline-none transition-all" type="text" placeholder="Product Name" required />
+            <input value={eName} onChange={(e) => setEName(e.target.value)} className="w-full px-3 py-2 border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-blue-500 focus:outline-none transition-all bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100" type="text" placeholder="Product Name" required />
           </div>
           <div className="w-full mb-4">
             <p className="mb-1 text-sm font-medium">Brand</p>
-            <input value={eBrand} onChange={(e) => setEBrand(e.target.value)} className="w-full px-3 py-2 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:outline-none transition-all" type="text" placeholder="Brand" />
+            <input value={eBrand} onChange={(e) => setEBrand(e.target.value)} className="w-full px-3 py-2 border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-blue-500 focus:outline-none transition-all bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100" type="text" placeholder="Brand" />
           </div>
           <div className="w-full mb-4">
             <p className="mb-1 text-sm font-medium">Description</p>
-            <textarea value={eDescription} onChange={(e) => setEDescription(e.target.value)} className="w-full px-3 py-2 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:outline-none transition-all" rows={3} placeholder="Description" required />
+            <textarea value={eDescription} onChange={(e) => setEDescription(e.target.value)} className="w-full px-3 py-2 border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-blue-500 focus:outline-none transition-all bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100" rows={3} placeholder="Description" required />
           </div>
 
           <div className="w-full mb-4">
             <p className="mb-1 text-sm font-medium">Condition</p>
-            <select value={eCondition} onChange={(e) => setECondition(e.target.value)} className="w-full px-3 py-2 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:outline-none transition-all">
+            <select value={eCondition} onChange={(e) => setECondition(e.target.value)} className="w-full px-3 py-2 border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-blue-500 focus:outline-none transition-all bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
               {electronicsConditions.map((opt) => <option key={opt} value={opt}>{opt}</option>)}
             </select>
           </div>
@@ -365,14 +365,14 @@ const Add = ({ token, isSeller = false }) => {
           <div className="flex flex-wrap items-end gap-3 w-full mb-4">
             <div>
               <p className="mb-1 text-sm font-medium">Original Price</p>
-              <input value={eOriginalPrice} onChange={(e) => setEOriginalPrice(e.target.value)} className="w-32 px-3 py-2 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:outline-none transition-all" type="number" placeholder="Original Price" min="0" step="0.01" />
+              <input value={eOriginalPrice} onChange={(e) => setEOriginalPrice(e.target.value)} className="w-32 px-3 py-2 border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-blue-500 focus:outline-none transition-all bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100" type="number" placeholder="Original Price" min="0" step="0.01" />
             </div>
             <button type="button" onClick={predictPriceHandlerElectronics} disabled={ePredicting} className="px-4 py-2 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium hover:shadow-lg hover:shadow-blue-500/50 disabled:bg-gray-300 transition-all duration-300 transform hover:-translate-y-1">
               {ePredicting ? 'Predicting...' : 'Predict Price'}
             </button>
             <div>
               <p className="mb-1 text-sm font-medium">Final Price (₹)</p>
-              <input value={eFinalPrice} onChange={(e) => setEFinalPrice(e.target.value)} className="w-32 px-3 py-2 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:outline-none transition-all" type="number" placeholder="Final Price" min="0" step="0.01" />
+              <input value={eFinalPrice} onChange={(e) => setEFinalPrice(e.target.value)} className="w-32 px-3 py-2 border-2 border-gray-300 dark:border-gray-700 rounded-xl focus:border-blue-500 focus:outline-none transition-all bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100" type="number" placeholder="Final Price" min="0" step="0.01" />
             </div>
           </div>
 

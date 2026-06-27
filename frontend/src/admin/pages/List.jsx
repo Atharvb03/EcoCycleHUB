@@ -49,7 +49,7 @@ const List = ({ token, isSeller = false }) => {
   }, [])
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 p-6 relative overflow-hidden'>
+    <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950 p-6 relative overflow-hidden'>
       {/* Animated Background Circles */}
       <div className="absolute top-20 left-10 w-64 h-64 bg-green-400/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
@@ -65,7 +65,7 @@ const List = ({ token, isSeller = false }) => {
             {list.map((item, index) => (
               <div
                 key={index}
-                className='backdrop-blur-xl bg-white/80 border border-white/20 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden animate-fade-in-up flex flex-col'
+                className='backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden animate-fade-in-up flex flex-col'
                 style={{ animationDelay: `${index * 0.04}s` }}
               >
                 {/* Image */}
@@ -80,13 +80,13 @@ const List = ({ token, isSeller = false }) => {
 
                 {/* Info */}
                 <div className='p-3 flex flex-col gap-1 flex-1'>
-                  <p className='font-semibold text-gray-800 text-sm leading-tight line-clamp-2'>{item.name || "-"}</p>
-                  <span className='self-start px-2 py-0.5 bg-blue-50 border border-blue-300 rounded-full text-xs text-blue-700 font-medium'>
+                  <p className='font-semibold text-gray-800 dark:text-gray-100 text-sm leading-tight line-clamp-2'>{item.name || "-"}</p>
+                  <span className='self-start px-2 py-0.5 bg-blue-50 dark:bg-blue-900/20 border border-blue-300 rounded-full text-xs text-blue-700 font-medium'>
                     {item.category || "-"}
                   </span>
                   <p className='font-bold text-green-600 text-sm mt-auto pt-1'>{currency}{item.price?.toFixed(2) || "0.00"}</p>
                   {item.sellerName && (
-                    <p className='text-[10px] text-gray-400 truncate'>🏪 {item.sellerName}</p>
+                    <p className='text-[10px] text-gray-400 dark:text-gray-100 truncate'>🏪 {item.sellerName}</p>
                   )}
                 </div>
 
@@ -104,9 +104,9 @@ const List = ({ token, isSeller = false }) => {
             ))}
           </div>
         ) : (
-          <div className='text-center py-20 backdrop-blur-xl bg-white/80 border border-white/20 rounded-2xl shadow-xl animate-fade-in-up'>
+          <div className='text-center py-20 backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-2xl shadow-xl animate-fade-in-up'>
             <div className='text-6xl mb-4'>📦</div>
-            <p className='text-xl text-gray-600'>No products found</p>
+            <p className='text-xl text-gray-600 dark:text-gray-100'>No products found</p>
           </div>
         )}
       </div>

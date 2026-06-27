@@ -36,7 +36,7 @@ const AdminApp = () => {
   }, [token]);
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-gray-50 dark:bg-gray-950 min-h-screen">
       {token === '' ? (
         <Login setToken={handleSetToken} />
       ) : (
@@ -45,7 +45,7 @@ const AdminApp = () => {
           <hr />
           <div className="flex w-full">
             <Sidebar />
-            <div className="w-[70%] mx-auto ml-[max(5vw,25px)] my-8 text-gray-600 text-base">
+            <div className="w-[70%] mx-auto ml-[max(5vw,25px)] my-8 text-gray-600 dark:text-gray-100 text-base">
               <Routes>
                 <Route path="list" element={<List token={token} />} />
                 <Route path="orders" element={<Orders token={token} />} />

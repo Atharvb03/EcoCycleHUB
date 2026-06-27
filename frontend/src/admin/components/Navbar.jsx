@@ -8,7 +8,7 @@ const Navbar = ({ setToken }) => {
   };
 
   return (
-    <div className='flex items-center py-3 px-[4%] justify-between bg-white/80 backdrop-blur-sm border-b border-green-100 shadow-sm'>
+    <div className='flex items-center py-3 px-[4%] justify-between bg-white/80 dark:bg-gray-900/85 backdrop-blur-sm border-b border-green-100 dark:border-emerald-900/60 shadow-sm'>
       <div className='flex items-center gap-3'>
         <img className='w-[max(10%,80px)]' src={assets.logo} alt="EcoCycleHub" />
         <span className='hidden sm:block text-sm font-medium bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent'>

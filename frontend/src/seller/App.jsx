@@ -29,9 +29,9 @@ const SellerApp = () => {
   if (!token) return <SellerLogin setToken={setToken} />;
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-gray-50 dark:bg-gray-950 min-h-screen">
       {/* Navbar */}
-      <div className="flex items-center py-3 px-[4%] justify-between bg-white/80 backdrop-blur-sm border-b border-green-100 shadow-sm">
+      <div className="flex items-center py-3 px-[4%] justify-between bg-white/80 dark:bg-gray-900/85 backdrop-blur-sm border-b border-green-100 dark:border-emerald-900/60 shadow-sm">
         <div className="flex items-center gap-3">
           <span className="text-2xl">♻️</span>
           <span className="font-bold text-lg bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
@@ -47,21 +47,21 @@ const SellerApp = () => {
 
       <div className="flex w-full">
         {/* Sidebar */}
-        <div className="w-[18%] min-h-screen border-r-2">
+        <div className="w-[18%] min-h-screen border-r-2 dark:border-gray-800">
           <div className="flex flex-col gap-4 pt-6 pl-[20%] text-[15px]">
-            <NavLink className="flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l" to="add">
+            <NavLink className="flex items-center gap-3 border border-gray-300 dark:border-gray-700 border-r-0 px-3 py-2 rounded-l" to="add">
               <span>➕</span>
               <p className="hidden md:block">Add Items</p>
             </NavLink>
-            <NavLink className="flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l" to="list">
+            <NavLink className="flex items-center gap-3 border border-gray-300 dark:border-gray-700 border-r-0 px-3 py-2 rounded-l" to="list">
               <span>📋</span>
               <p className="hidden md:block">List Items</p>
             </NavLink>
-            <NavLink className="flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l" to="orders">
+            <NavLink className="flex items-center gap-3 border border-gray-300 dark:border-gray-700 border-r-0 px-3 py-2 rounded-l" to="orders">
               <span>📦</span>
               <p className="hidden md:block">Orders</p>
             </NavLink>
-            <NavLink className="flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l" to="users">
+            <NavLink className="flex items-center gap-3 border border-gray-300 dark:border-gray-700 border-r-0 px-3 py-2 rounded-l" to="users">
               <span>👥</span>
               <p className="hidden md:block">Users & Points</p>
             </NavLink>
@@ -69,7 +69,7 @@ const SellerApp = () => {
         </div>
 
         {/* Main content */}
-        <div className="w-[70%] mx-auto ml-[max(5vw,25px)] my-8 text-gray-600 text-base">
+        <div className="w-[70%] mx-auto ml-[max(5vw,25px)] my-8 text-gray-600 dark:text-gray-100 text-base">
           <Routes>
             <Route path="add"    element={<Add    token={token} isSeller={true} />} />
             <Route path="list"   element={<List   token={token} isSeller={true} />} />

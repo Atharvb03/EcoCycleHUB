@@ -35,17 +35,17 @@ const SellerKYC = ({ token }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950 flex items-center justify-center">
         <div className="text-center">
           <div className="text-6xl animate-spin-slow mb-4">⚙️</div>
-          <p className="text-xl text-gray-600">Loading...</p>
+          <p className="text-xl text-gray-600 dark:text-gray-100">Loading...</p>
         </div>
       </div>
     )
   }
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 p-6 relative overflow-hidden'>
+    <div className='min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-emerald-950 dark:to-slate-950 p-6 relative overflow-hidden'>
       <div className="absolute top-20 left-10 w-64 h-64 bg-orange-400/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
 
@@ -62,17 +62,17 @@ const SellerKYC = ({ token }) => {
         </div>
 
         {pendingSellers.length === 0 ? (
-          <div className='text-center py-20 backdrop-blur-xl bg-white/80 border border-white/20 rounded-2xl shadow-xl animate-fade-in-up'>
+          <div className='text-center py-20 backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-2xl shadow-xl animate-fade-in-up'>
             <div className='text-6xl mb-4'>✅</div>
-            <p className='text-xl text-gray-600'>No pending verifications</p>
-            <p className='text-sm text-gray-400 mt-2'>All sellers have been reviewed</p>
+            <p className='text-xl text-gray-600 dark:text-gray-100'>No pending verifications</p>
+            <p className='text-sm text-gray-400 dark:text-gray-100 mt-2'>All sellers have been reviewed</p>
           </div>
         ) : (
           <div className="space-y-4">
             {pendingSellers.map((seller, index) => (
               <div
                 key={seller._id}
-                className="backdrop-blur-xl bg-white/80 border border-white/20 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in-up"
+                className="backdrop-blur-xl bg-white/80 dark:bg-gray-900/85 border border-white/20 dark:border-gray-700/60 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
                 <div className="flex gap-6 items-start">
@@ -82,11 +82,11 @@ const SellerKYC = ({ token }) => {
                     className="w-16 h-16 rounded-full object-cover border-2 border-green-300 shrink-0"
                   />
                   <div className="flex-1">
-                    <p className="font-bold text-gray-800 text-lg">{seller.name}</p>
-                    <p className="text-gray-500 text-sm">{seller.email} · {seller.mobile}</p>
-                    {seller.location && <p className="text-gray-500 text-sm">📍 {seller.location}</p>}
+                    <p className="font-bold text-gray-800 dark:text-gray-100 text-lg">{seller.name}</p>
+                    <p className="text-gray-500 dark:text-gray-100 text-sm">{seller.email} · {seller.mobile}</p>
+                    {seller.location && <p className="text-gray-500 dark:text-gray-100 text-sm">📍 {seller.location}</p>}
                     {seller.aadhaarNumber && (
-                      <p className="text-gray-500 text-sm font-mono">🪪 Aadhaar: {seller.aadhaarNumber}</p>
+                      <p className="text-gray-500 dark:text-gray-100 text-sm font-mono">🪪 Aadhaar: {seller.aadhaarNumber}</p>
                     )}
                     {seller.aadhaarUrl && (
                       <a
