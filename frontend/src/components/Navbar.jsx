@@ -51,7 +51,7 @@ const Navbar = () => {
             <img src={assets.logo} className='w-10 h-10 object-contain' alt="EcoCycleHub" />
             <span className='text-xl font-bold leading-none'>
               <span className='text-black'>EcoCycle</span>
-              <span className='bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent'>HUB</span>
+              <span style={{ background: 'linear-gradient(to right, #78e08f, #38d996, #00b894)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>HUB</span>
             </span>
           </Link>
 
@@ -217,7 +217,7 @@ const Navbar = () => {
               <img src={assets.logo} className='w-8 h-8 object-contain' alt="" />
               <span className='text-base font-bold leading-none'>
                 <span className='text-black'>EcoCycle</span>
-                <span className='bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent'>HUB</span>
+                <span style={{ background: 'linear-gradient(to right, #78e08f, #38d996, #00b894)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>HUB</span>
               </span>
             </div>
             <button onClick={() => setVisible(false)}
