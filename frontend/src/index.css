@@ -4,6 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Dark mode base */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #030712;
+  color: #f9fafb;
+}
+
 a.active hr{
     display: block;
 }

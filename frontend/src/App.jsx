@@ -1,5 +1,6 @@
 import React from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
+import { useTheme } from './context/ThemeContext'
 
 // Main frontend pages & components
 import Home from './pages/Home'
@@ -33,14 +34,15 @@ import 'react-toastify/dist/ReactToastify.css'
 
 const App = () => {
   const location = useLocation()
+  const { isDark } = useTheme()
   const isAdminRoute = location.pathname.startsWith('/admin')
   const isSellerRoute = location.pathname.startsWith('/seller')
   const isBuyerRoute = location.pathname.startsWith('/buyer')
   const isPortalRoute = isAdminRoute || isSellerRoute || isBuyerRoute
 
   return (
-    <div className={isPortalRoute ? '' : 'px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'}>
-      <ToastContainer />
+    <div className={`${isPortalRoute ? '' : 'px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'} min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300`}>
+      <ToastContainer theme={isDark ? 'dark' : 'light'} />
 
       {!isPortalRoute && <Navbar />}
       {!isPortalRoute && <SearchBar />}
