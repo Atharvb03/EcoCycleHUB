@@ -46,9 +46,13 @@ const Navbar = () => {
       <nav className='sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b border-white/30 shadow-sm'>
         <div className='max-w-7xl mx-auto px-4 flex items-center justify-between h-16'>
 
-          {/* Logo */}
-          <Link to='/' className='shrink-0'>
-            <img src={assets.logo} className='w-28' alt="EcoCycleHub" />
+          {/* Logo + Brand Name */}
+          <Link to='/' className='shrink-0 flex items-center gap-2'>
+            <img src={assets.logo} className='w-10 h-10 object-contain' alt="EcoCycleHub" />
+            <span className='text-xl font-bold leading-none'>
+              <span className='text-black'>EcoCycle</span>
+              <span className='bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent'>HUB</span>
+            </span>
           </Link>
 
           {/* Desktop Nav */}
@@ -209,7 +213,13 @@ const Navbar = () => {
              onClick={() => setVisible(false)} />
         <div className={`absolute top-0 right-0 h-full w-72 bg-white shadow-2xl transition-transform duration-300 ${visible ? 'translate-x-0' : 'translate-x-full'}`}>
           <div className='flex items-center justify-between p-4 border-b'>
-            <img src={assets.logo} className='w-24' alt="" />
+            <div className='flex items-center gap-2'>
+              <img src={assets.logo} className='w-8 h-8 object-contain' alt="" />
+              <span className='text-base font-bold leading-none'>
+                <span className='text-black'>EcoCycle</span>
+                <span className='bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent'>HUB</span>
+              </span>
+            </div>
             <button onClick={() => setVisible(false)}
               className='w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-500'>✕</button>
           </div>
